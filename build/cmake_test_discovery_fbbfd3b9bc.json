@@ -1,0 +1,118 @@
+{
+  "tests": 20,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "EvaluatorTest",
+      "tests": 8,
+      "testsuite": [
+        {
+          "name": "ConstructorWithValidConfigPath",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 34
+        },
+        {
+          "name": "ConstructorWithInvalidConfigPath",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 43
+        },
+        {
+          "name": "EvaluateReturnsSuccessStatus",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 53
+        },
+        {
+          "name": "EvaluateProcessesAllItems",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 61
+        },
+        {
+          "name": "EvaluateHandlesEmptyDatasources",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 71
+        },
+        {
+          "name": "DestructorCleansUp",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 82
+        },
+        {
+          "name": "MultipleEvaluateCalls",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 94
+        },
+        {
+          "name": "EvaluateProcessesRowDataCorrectly",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "name": "ChaiScriptTest",
+      "tests": 12,
+      "testsuite": [
+        {
+          "name": "ChaiScriptInitialization",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 138
+        },
+        {
+          "name": "BasicArithmetic",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 144
+        },
+        {
+          "name": "VariableAssignment",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 151
+        },
+        {
+          "name": "FunctionDefinition",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 159
+        },
+        {
+          "name": "StringOperations",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 167
+        },
+        {
+          "name": "ListOperations",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 175
+        },
+        {
+          "name": "LambdaExpressions",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 183
+        },
+        {
+          "name": "ConditionalStatements",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 191
+        },
+        {
+          "name": "LoopOperations",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 204
+        },
+        {
+          "name": "DynamicEvaluation",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 215
+        },
+        {
+          "name": "ExceptionHandling",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 224
+        },
+        {
+          "name": "RiskAssessmentLogic",
+          "file": "\/Users\/kenny\/go\/src\/github.com\/kennykarnama\/ilfx\/src\/inherent_datasource_test.cpp",
+          "line": 234
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+if(EXISTS "/Users/kenny/go/src/github.com/kennykarnama/ilfx/build/inherent_datasource_test[1]_tests.cmake")
+  include("/Users/kenny/go/src/github.com/kennykarnama/ilfx/build/inherent_datasource_test[1]_tests.cmake")
+else()
+  add_test(inherent_datasource_test_NOT_BUILT inherent_datasource_test_NOT_BUILT)
+endif()
