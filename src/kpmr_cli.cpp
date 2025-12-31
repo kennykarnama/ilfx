@@ -95,8 +95,8 @@ int main(int argc, char* argv[]) {
             LOG(INFO) << "Writing results to: " << output_path;
 
             xml_schema::namespace_infomap map;
-            map[""].name = "";
-            map[""].schema = "../xsd/KPMRDataSource.xsd";
+            map[""].name = "http://example.com/kpmr";
+            map[""].schema = "./xsd/KPMRDataSource.xsd";
 
             // Serialize the data to XML file
             std::ofstream ofs(output_path);

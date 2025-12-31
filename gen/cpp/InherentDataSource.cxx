@@ -40,1874 +40,1896 @@
 
 #include "InherentDataSource.hxx"
 
-// DataType
-//
-
-const DataType::riskName_type& DataType::
-riskName () const
-{
-  return this->riskName_.get ();
-}
-
-DataType::riskName_type& DataType::
-riskName ()
-{
-  return this->riskName_.get ();
-}
-
-void DataType::
-riskName (const riskName_type& x)
-{
-  this->riskName_.set (x);
-}
-
-void DataType::
-riskName (::std::unique_ptr< riskName_type > x)
-{
-  this->riskName_.set (std::move (x));
-}
-
-const DataType::list_type& DataType::
-list () const
-{
-  return this->list_.get ();
-}
-
-DataType::list_type& DataType::
-list ()
-{
-  return this->list_.get ();
-}
-
-void DataType::
-list (const list_type& x)
-{
-  this->list_.set (x);
-}
-
-void DataType::
-list (::std::unique_ptr< list_type > x)
-{
-  this->list_.set (std::move (x));
-}
-
-const DataType::responseCode_type& DataType::
-responseCode () const
-{
-  return this->responseCode_.get ();
-}
-
-DataType::responseCode_type& DataType::
-responseCode ()
-{
-  return this->responseCode_.get ();
-}
-
-void DataType::
-responseCode (const responseCode_type& x)
-{
-  this->responseCode_.set (x);
-}
-
-void DataType::
-responseCode (::std::unique_ptr< responseCode_type > x)
-{
-  this->responseCode_.set (std::move (x));
-}
-
-const DataType::responseMessage_type& DataType::
-responseMessage () const
-{
-  return this->responseMessage_.get ();
-}
-
-DataType::responseMessage_type& DataType::
-responseMessage ()
-{
-  return this->responseMessage_.get ();
-}
-
-void DataType::
-responseMessage (const responseMessage_type& x)
-{
-  this->responseMessage_.set (x);
-}
-
-void DataType::
-responseMessage (::std::unique_ptr< responseMessage_type > x)
-{
-  this->responseMessage_.set (std::move (x));
-}
-
-
-// ListType
-//
-
-const ListType::item_sequence& ListType::
-item () const
-{
-  return this->item_;
-}
-
-ListType::item_sequence& ListType::
-item ()
-{
-  return this->item_;
-}
-
-void ListType::
-item (const item_sequence& s)
-{
-  this->item_ = s;
-}
-
-
-// ItemType
-//
-
-const ItemType::code_type& ItemType::
-code () const
-{
-  return this->code_.get ();
-}
-
-ItemType::code_type& ItemType::
-code ()
-{
-  return this->code_.get ();
-}
-
-void ItemType::
-code (const code_type& x)
-{
-  this->code_.set (x);
-}
-
-void ItemType::
-code (::std::unique_ptr< code_type > x)
-{
-  this->code_.set (std::move (x));
-}
-
-const ItemType::consolidate_type& ItemType::
-consolidate () const
-{
-  return this->consolidate_.get ();
-}
-
-ItemType::consolidate_type& ItemType::
-consolidate ()
-{
-  return this->consolidate_.get ();
-}
-
-void ItemType::
-consolidate (const consolidate_type& x)
-{
-  this->consolidate_.set (x);
-}
-
-const ItemType::dataName_type& ItemType::
-dataName () const
-{
-  return this->dataName_.get ();
-}
-
-ItemType::dataName_type& ItemType::
-dataName ()
-{
-  return this->dataName_.get ();
-}
-
-void ItemType::
-dataName (const dataName_type& x)
-{
-  this->dataName_.set (x);
-}
-
-void ItemType::
-dataName (::std::unique_ptr< dataName_type > x)
-{
-  this->dataName_.set (std::move (x));
-}
-
-const ItemType::fsiRule_optional& ItemType::
-fsiRule () const
-{
-  return this->fsiRule_;
-}
-
-ItemType::fsiRule_optional& ItemType::
-fsiRule ()
-{
-  return this->fsiRule_;
-}
-
-void ItemType::
-fsiRule (const fsiRule_type& x)
-{
-  this->fsiRule_.set (x);
-}
-
-void ItemType::
-fsiRule (const fsiRule_optional& x)
-{
-  this->fsiRule_ = x;
-}
-
-void ItemType::
-fsiRule (::std::unique_ptr< fsiRule_type > x)
-{
-  this->fsiRule_.set (std::move (x));
-}
-
-const ItemType::consolidationRule_optional& ItemType::
-consolidationRule () const
-{
-  return this->consolidationRule_;
-}
-
-ItemType::consolidationRule_optional& ItemType::
-consolidationRule ()
-{
-  return this->consolidationRule_;
-}
-
-void ItemType::
-consolidationRule (const consolidationRule_type& x)
-{
-  this->consolidationRule_.set (x);
-}
-
-void ItemType::
-consolidationRule (const consolidationRule_optional& x)
-{
-  this->consolidationRule_ = x;
-}
-
-void ItemType::
-consolidationRule (::std::unique_ptr< consolidationRule_type > x)
-{
-  this->consolidationRule_.set (std::move (x));
-}
-
-const ItemType::detail_type& ItemType::
-detail () const
-{
-  return this->detail_.get ();
-}
-
-ItemType::detail_type& ItemType::
-detail ()
-{
-  return this->detail_.get ();
-}
-
-void ItemType::
-detail (const detail_type& x)
-{
-  this->detail_.set (x);
-}
-
-void ItemType::
-detail (::std::unique_ptr< detail_type > x)
-{
-  this->detail_.set (std::move (x));
-}
-
-const ItemType::id_type& ItemType::
-id () const
-{
-  return this->id_.get ();
-}
-
-ItemType::id_type& ItemType::
-id ()
-{
-  return this->id_.get ();
-}
-
-void ItemType::
-id (const id_type& x)
-{
-  this->id_.set (x);
-}
-
-const ItemType::sourceId_optional& ItemType::
-sourceId () const
-{
-  return this->sourceId_;
-}
-
-ItemType::sourceId_optional& ItemType::
-sourceId ()
-{
-  return this->sourceId_;
-}
-
-void ItemType::
-sourceId (const sourceId_type& x)
-{
-  this->sourceId_.set (x);
-}
-
-void ItemType::
-sourceId (const sourceId_optional& x)
-{
-  this->sourceId_ = x;
-}
-
-
-// DetailType
-//
-
-const DetailType::row_sequence& DetailType::
-row () const
-{
-  return this->row_;
-}
-
-DetailType::row_sequence& DetailType::
-row ()
-{
-  return this->row_;
+namespace inherent
+{
+  namespace datasource
+  {
+    // DataType
+    //
+
+    const DataType::riskName_type& DataType::
+    riskName () const
+    {
+      return this->riskName_.get ();
+    }
+
+    DataType::riskName_type& DataType::
+    riskName ()
+    {
+      return this->riskName_.get ();
+    }
+
+    void DataType::
+    riskName (const riskName_type& x)
+    {
+      this->riskName_.set (x);
+    }
+
+    void DataType::
+    riskName (::std::unique_ptr< riskName_type > x)
+    {
+      this->riskName_.set (std::move (x));
+    }
+
+    const DataType::list_type& DataType::
+    list () const
+    {
+      return this->list_.get ();
+    }
+
+    DataType::list_type& DataType::
+    list ()
+    {
+      return this->list_.get ();
+    }
+
+    void DataType::
+    list (const list_type& x)
+    {
+      this->list_.set (x);
+    }
+
+    void DataType::
+    list (::std::unique_ptr< list_type > x)
+    {
+      this->list_.set (std::move (x));
+    }
+
+    const DataType::responseCode_type& DataType::
+    responseCode () const
+    {
+      return this->responseCode_.get ();
+    }
+
+    DataType::responseCode_type& DataType::
+    responseCode ()
+    {
+      return this->responseCode_.get ();
+    }
+
+    void DataType::
+    responseCode (const responseCode_type& x)
+    {
+      this->responseCode_.set (x);
+    }
+
+    void DataType::
+    responseCode (::std::unique_ptr< responseCode_type > x)
+    {
+      this->responseCode_.set (std::move (x));
+    }
+
+    const DataType::responseMessage_type& DataType::
+    responseMessage () const
+    {
+      return this->responseMessage_.get ();
+    }
+
+    DataType::responseMessage_type& DataType::
+    responseMessage ()
+    {
+      return this->responseMessage_.get ();
+    }
+
+    void DataType::
+    responseMessage (const responseMessage_type& x)
+    {
+      this->responseMessage_.set (x);
+    }
+
+    void DataType::
+    responseMessage (::std::unique_ptr< responseMessage_type > x)
+    {
+      this->responseMessage_.set (std::move (x));
+    }
+
+
+    // ListType
+    //
+
+    const ListType::item_sequence& ListType::
+    item () const
+    {
+      return this->item_;
+    }
+
+    ListType::item_sequence& ListType::
+    item ()
+    {
+      return this->item_;
+    }
+
+    void ListType::
+    item (const item_sequence& s)
+    {
+      this->item_ = s;
+    }
+
+
+    // ItemType
+    //
+
+    const ItemType::code_type& ItemType::
+    code () const
+    {
+      return this->code_.get ();
+    }
+
+    ItemType::code_type& ItemType::
+    code ()
+    {
+      return this->code_.get ();
+    }
+
+    void ItemType::
+    code (const code_type& x)
+    {
+      this->code_.set (x);
+    }
+
+    void ItemType::
+    code (::std::unique_ptr< code_type > x)
+    {
+      this->code_.set (std::move (x));
+    }
+
+    const ItemType::consolidate_type& ItemType::
+    consolidate () const
+    {
+      return this->consolidate_.get ();
+    }
+
+    ItemType::consolidate_type& ItemType::
+    consolidate ()
+    {
+      return this->consolidate_.get ();
+    }
+
+    void ItemType::
+    consolidate (const consolidate_type& x)
+    {
+      this->consolidate_.set (x);
+    }
+
+    const ItemType::dataName_type& ItemType::
+    dataName () const
+    {
+      return this->dataName_.get ();
+    }
+
+    ItemType::dataName_type& ItemType::
+    dataName ()
+    {
+      return this->dataName_.get ();
+    }
+
+    void ItemType::
+    dataName (const dataName_type& x)
+    {
+      this->dataName_.set (x);
+    }
+
+    void ItemType::
+    dataName (::std::unique_ptr< dataName_type > x)
+    {
+      this->dataName_.set (std::move (x));
+    }
+
+    const ItemType::fsiRule_optional& ItemType::
+    fsiRule () const
+    {
+      return this->fsiRule_;
+    }
+
+    ItemType::fsiRule_optional& ItemType::
+    fsiRule ()
+    {
+      return this->fsiRule_;
+    }
+
+    void ItemType::
+    fsiRule (const fsiRule_type& x)
+    {
+      this->fsiRule_.set (x);
+    }
+
+    void ItemType::
+    fsiRule (const fsiRule_optional& x)
+    {
+      this->fsiRule_ = x;
+    }
+
+    void ItemType::
+    fsiRule (::std::unique_ptr< fsiRule_type > x)
+    {
+      this->fsiRule_.set (std::move (x));
+    }
+
+    const ItemType::consolidationRule_optional& ItemType::
+    consolidationRule () const
+    {
+      return this->consolidationRule_;
+    }
+
+    ItemType::consolidationRule_optional& ItemType::
+    consolidationRule ()
+    {
+      return this->consolidationRule_;
+    }
+
+    void ItemType::
+    consolidationRule (const consolidationRule_type& x)
+    {
+      this->consolidationRule_.set (x);
+    }
+
+    void ItemType::
+    consolidationRule (const consolidationRule_optional& x)
+    {
+      this->consolidationRule_ = x;
+    }
+
+    void ItemType::
+    consolidationRule (::std::unique_ptr< consolidationRule_type > x)
+    {
+      this->consolidationRule_.set (std::move (x));
+    }
+
+    const ItemType::detail_optional& ItemType::
+    detail () const
+    {
+      return this->detail_;
+    }
+
+    ItemType::detail_optional& ItemType::
+    detail ()
+    {
+      return this->detail_;
+    }
+
+    void ItemType::
+    detail (const detail_type& x)
+    {
+      this->detail_.set (x);
+    }
+
+    void ItemType::
+    detail (const detail_optional& x)
+    {
+      this->detail_ = x;
+    }
+
+    void ItemType::
+    detail (::std::unique_ptr< detail_type > x)
+    {
+      this->detail_.set (std::move (x));
+    }
+
+    const ItemType::id_type& ItemType::
+    id () const
+    {
+      return this->id_.get ();
+    }
+
+    ItemType::id_type& ItemType::
+    id ()
+    {
+      return this->id_.get ();
+    }
+
+    void ItemType::
+    id (const id_type& x)
+    {
+      this->id_.set (x);
+    }
+
+    const ItemType::sourceId_optional& ItemType::
+    sourceId () const
+    {
+      return this->sourceId_;
+    }
+
+    ItemType::sourceId_optional& ItemType::
+    sourceId ()
+    {
+      return this->sourceId_;
+    }
+
+    void ItemType::
+    sourceId (const sourceId_type& x)
+    {
+      this->sourceId_.set (x);
+    }
+
+    void ItemType::
+    sourceId (const sourceId_optional& x)
+    {
+      this->sourceId_ = x;
+    }
+
+
+    // DetailType
+    //
+
+    const DetailType::row_sequence& DetailType::
+    row () const
+    {
+      return this->row_;
+    }
+
+    DetailType::row_sequence& DetailType::
+    row ()
+    {
+      return this->row_;
+    }
+
+    void DetailType::
+    row (const row_sequence& s)
+    {
+      this->row_ = s;
+    }
+
+
+    // DetailRowType
+    //
+
+    const DetailRowType::companyName_type& DetailRowType::
+    companyName () const
+    {
+      return this->companyName_.get ();
+    }
+
+    DetailRowType::companyName_type& DetailRowType::
+    companyName ()
+    {
+      return this->companyName_.get ();
+    }
+
+    void DetailRowType::
+    companyName (const companyName_type& x)
+    {
+      this->companyName_.set (x);
+    }
+
+    void DetailRowType::
+    companyName (::std::unique_ptr< companyName_type > x)
+    {
+      this->companyName_.set (std::move (x));
+    }
+
+    const DetailRowType::companyType_optional& DetailRowType::
+    companyType () const
+    {
+      return this->companyType_;
+    }
+
+    DetailRowType::companyType_optional& DetailRowType::
+    companyType ()
+    {
+      return this->companyType_;
+    }
+
+    void DetailRowType::
+    companyType (const companyType_type& x)
+    {
+      this->companyType_.set (x);
+    }
+
+    void DetailRowType::
+    companyType (const companyType_optional& x)
+    {
+      this->companyType_ = x;
+    }
+
+    void DetailRowType::
+    companyType (::std::unique_ptr< companyType_type > x)
+    {
+      this->companyType_.set (std::move (x));
+    }
+
+    const DetailRowType::description_type& DetailRowType::
+    description () const
+    {
+      return this->description_.get ();
+    }
+
+    DetailRowType::description_type& DetailRowType::
+    description ()
+    {
+      return this->description_.get ();
+    }
+
+    void DetailRowType::
+    description (const description_type& x)
+    {
+      this->description_.set (x);
+    }
+
+    void DetailRowType::
+    description (::std::unique_ptr< description_type > x)
+    {
+      this->description_.set (std::move (x));
+    }
+
+    const DetailRowType::value_type& DetailRowType::
+    value () const
+    {
+      return this->value_.get ();
+    }
+
+    DetailRowType::value_type& DetailRowType::
+    value ()
+    {
+      return this->value_.get ();
+    }
+
+    void DetailRowType::
+    value (const value_type& x)
+    {
+      this->value_.set (x);
+    }
+  }
 }
-
-void DetailType::
-row (const row_sequence& s)
-{
-  this->row_ = s;
-}
-
-
-// DetailRowType
-//
-
-const DetailRowType::companyName_type& DetailRowType::
-companyName () const
-{
-  return this->companyName_.get ();
-}
-
-DetailRowType::companyName_type& DetailRowType::
-companyName ()
-{
-  return this->companyName_.get ();
-}
-
-void DetailRowType::
-companyName (const companyName_type& x)
-{
-  this->companyName_.set (x);
-}
-
-void DetailRowType::
-companyName (::std::unique_ptr< companyName_type > x)
-{
-  this->companyName_.set (std::move (x));
-}
-
-const DetailRowType::companyType_optional& DetailRowType::
-companyType () const
-{
-  return this->companyType_;
-}
-
-DetailRowType::companyType_optional& DetailRowType::
-companyType ()
-{
-  return this->companyType_;
-}
-
-void DetailRowType::
-companyType (const companyType_type& x)
-{
-  this->companyType_.set (x);
-}
-
-void DetailRowType::
-companyType (const companyType_optional& x)
-{
-  this->companyType_ = x;
-}
-
-void DetailRowType::
-companyType (::std::unique_ptr< companyType_type > x)
-{
-  this->companyType_.set (std::move (x));
-}
-
-const DetailRowType::description_type& DetailRowType::
-description () const
-{
-  return this->description_.get ();
-}
-
-DetailRowType::description_type& DetailRowType::
-description ()
-{
-  return this->description_.get ();
-}
-
-void DetailRowType::
-description (const description_type& x)
-{
-  this->description_.set (x);
-}
-
-void DetailRowType::
-description (::std::unique_ptr< description_type > x)
-{
-  this->description_.set (std::move (x));
-}
-
-const DetailRowType::value_type& DetailRowType::
-value () const
-{
-  return this->value_.get ();
-}
-
-DetailRowType::value_type& DetailRowType::
-value ()
-{
-  return this->value_.get ();
-}
-
-void DetailRowType::
-value (const value_type& x)
-{
-  this->value_.set (x);
-}
-
 
 #include <xsd/cxx/xml/dom/parsing-source.hxx>
 
-// DataType
-//
-
-DataType::
-DataType (const riskName_type& riskName,
-          const list_type& list,
-          const responseCode_type& responseCode,
-          const responseMessage_type& responseMessage)
-: ::xml_schema::type (),
-  riskName_ (riskName, this),
-  list_ (list, this),
-  responseCode_ (responseCode, this),
-  responseMessage_ (responseMessage, this)
+namespace inherent
 {
-}
-
-DataType::
-DataType (const riskName_type& riskName,
-          ::std::unique_ptr< list_type > list,
-          const responseCode_type& responseCode,
-          const responseMessage_type& responseMessage)
-: ::xml_schema::type (),
-  riskName_ (riskName, this),
-  list_ (std::move (list), this),
-  responseCode_ (responseCode, this),
-  responseMessage_ (responseMessage, this)
-{
-}
-
-DataType::
-DataType (const DataType& x,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  riskName_ (x.riskName_, f, this),
-  list_ (x.list_, f, this),
-  responseCode_ (x.responseCode_, f, this),
-  responseMessage_ (x.responseMessage_, f, this)
-{
-}
-
-DataType::
-DataType (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  riskName_ (this),
-  list_ (this),
-  responseCode_ (this),
-  responseMessage_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
+  namespace datasource
   {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void DataType::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // riskName
+    // DataType
     //
-    if (n.name () == "riskName" && n.namespace_ ().empty ())
+
+    DataType::
+    DataType (const riskName_type& riskName,
+              const list_type& list,
+              const responseCode_type& responseCode,
+              const responseMessage_type& responseMessage)
+    : ::xml_schema::type (),
+      riskName_ (riskName, this),
+      list_ (list, this),
+      responseCode_ (responseCode, this),
+      responseMessage_ (responseMessage, this)
     {
-      ::std::unique_ptr< riskName_type > r (
-        riskName_traits::create (i, f, this));
+    }
+
+    DataType::
+    DataType (const riskName_type& riskName,
+              ::std::unique_ptr< list_type > list,
+              const responseCode_type& responseCode,
+              const responseMessage_type& responseMessage)
+    : ::xml_schema::type (),
+      riskName_ (riskName, this),
+      list_ (std::move (list), this),
+      responseCode_ (responseCode, this),
+      responseMessage_ (responseMessage, this)
+    {
+    }
+
+    DataType::
+    DataType (const DataType& x,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+    : ::xml_schema::type (x, f, c),
+      riskName_ (x.riskName_, f, this),
+      list_ (x.list_, f, this),
+      responseCode_ (x.responseCode_, f, this),
+      responseMessage_ (x.responseMessage_, f, this)
+    {
+    }
+
+    DataType::
+    DataType (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+    : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+      riskName_ (this),
+      list_ (this),
+      responseCode_ (this),
+      responseMessage_ (this)
+    {
+      if ((f & ::xml_schema::flags::base) == 0)
+      {
+        ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+        this->parse (p, f);
+      }
+    }
+
+    void DataType::
+    parse (::xsd::cxx::xml::dom::parser< char >& p,
+           ::xml_schema::flags f)
+    {
+      for (; p.more_content (); p.next_content (false))
+      {
+        const ::xercesc::DOMElement& i (p.cur_element ());
+        const ::xsd::cxx::xml::qualified_name< char > n (
+          ::xsd::cxx::xml::dom::name< char > (i));
+
+        // riskName
+        //
+        if (n.name () == "riskName" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< riskName_type > r (
+            riskName_traits::create (i, f, this));
+
+          if (!riskName_.present ())
+          {
+            this->riskName_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // list
+        //
+        if (n.name () == "list" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< list_type > r (
+            list_traits::create (i, f, this));
+
+          if (!list_.present ())
+          {
+            this->list_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // responseCode
+        //
+        if (n.name () == "responseCode" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< responseCode_type > r (
+            responseCode_traits::create (i, f, this));
+
+          if (!responseCode_.present ())
+          {
+            this->responseCode_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // responseMessage
+        //
+        if (n.name () == "responseMessage" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< responseMessage_type > r (
+            responseMessage_traits::create (i, f, this));
+
+          if (!responseMessage_.present ())
+          {
+            this->responseMessage_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        break;
+      }
 
       if (!riskName_.present ())
       {
-        this->riskName_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "riskName",
+          "http://example.com/inherent");
       }
-    }
-
-    // list
-    //
-    if (n.name () == "list" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< list_type > r (
-        list_traits::create (i, f, this));
 
       if (!list_.present ())
       {
-        this->list_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "list",
+          "http://example.com/inherent");
       }
-    }
-
-    // responseCode
-    //
-    if (n.name () == "responseCode" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< responseCode_type > r (
-        responseCode_traits::create (i, f, this));
 
       if (!responseCode_.present ())
       {
-        this->responseCode_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "responseCode",
+          "http://example.com/inherent");
       }
-    }
-
-    // responseMessage
-    //
-    if (n.name () == "responseMessage" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< responseMessage_type > r (
-        responseMessage_traits::create (i, f, this));
 
       if (!responseMessage_.present ())
       {
-        this->responseMessage_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "responseMessage",
+          "http://example.com/inherent");
       }
     }
 
-    break;
-  }
-
-  if (!riskName_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "riskName",
-      "");
-  }
-
-  if (!list_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "list",
-      "");
-  }
-
-  if (!responseCode_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "responseCode",
-      "");
-  }
-
-  if (!responseMessage_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "responseMessage",
-      "");
-  }
-}
-
-DataType* DataType::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class DataType (*this, f, c);
-}
-
-DataType& DataType::
-operator= (const DataType& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->riskName_ = x.riskName_;
-    this->list_ = x.list_;
-    this->responseCode_ = x.responseCode_;
-    this->responseMessage_ = x.responseMessage_;
-  }
-
-  return *this;
-}
-
-DataType::
-~DataType ()
-{
-}
-
-// ListType
-//
-
-ListType::
-ListType ()
-: ::xml_schema::type (),
-  item_ (this)
-{
-}
-
-ListType::
-ListType (const ListType& x,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  item_ (x.item_, f, this)
-{
-}
-
-ListType::
-ListType (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  item_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void ListType::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // item
-    //
-    if (n.name () == "item" && n.namespace_ ().empty ())
+    DataType* DataType::
+    _clone (::xml_schema::flags f,
+            ::xml_schema::container* c) const
     {
-      ::std::unique_ptr< item_type > r (
-        item_traits::create (i, f, this));
-
-      this->item_.push_back (::std::move (r));
-      continue;
+      return new class DataType (*this, f, c);
     }
 
-    break;
-  }
-}
-
-ListType* ListType::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class ListType (*this, f, c);
-}
-
-ListType& ListType::
-operator= (const ListType& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->item_ = x.item_;
-  }
-
-  return *this;
-}
-
-ListType::
-~ListType ()
-{
-}
-
-// ItemType
-//
-
-ItemType::
-ItemType (const code_type& code,
-          const consolidate_type& consolidate,
-          const dataName_type& dataName,
-          const detail_type& detail,
-          const id_type& id)
-: ::xml_schema::type (),
-  code_ (code, this),
-  consolidate_ (consolidate, this),
-  dataName_ (dataName, this),
-  fsiRule_ (this),
-  consolidationRule_ (this),
-  detail_ (detail, this),
-  id_ (id, this),
-  sourceId_ (this)
-{
-}
-
-ItemType::
-ItemType (const code_type& code,
-          const consolidate_type& consolidate,
-          const dataName_type& dataName,
-          ::std::unique_ptr< detail_type > detail,
-          const id_type& id)
-: ::xml_schema::type (),
-  code_ (code, this),
-  consolidate_ (consolidate, this),
-  dataName_ (dataName, this),
-  fsiRule_ (this),
-  consolidationRule_ (this),
-  detail_ (std::move (detail), this),
-  id_ (id, this),
-  sourceId_ (this)
-{
-}
-
-ItemType::
-ItemType (const ItemType& x,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  code_ (x.code_, f, this),
-  consolidate_ (x.consolidate_, f, this),
-  dataName_ (x.dataName_, f, this),
-  fsiRule_ (x.fsiRule_, f, this),
-  consolidationRule_ (x.consolidationRule_, f, this),
-  detail_ (x.detail_, f, this),
-  id_ (x.id_, f, this),
-  sourceId_ (x.sourceId_, f, this)
-{
-}
-
-ItemType::
-ItemType (const ::xercesc::DOMElement& e,
-          ::xml_schema::flags f,
-          ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  code_ (this),
-  consolidate_ (this),
-  dataName_ (this),
-  fsiRule_ (this),
-  consolidationRule_ (this),
-  detail_ (this),
-  id_ (this),
-  sourceId_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void ItemType::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // code
-    //
-    if (n.name () == "code" && n.namespace_ ().empty ())
+    DataType& DataType::
+    operator= (const DataType& x)
     {
-      ::std::unique_ptr< code_type > r (
-        code_traits::create (i, f, this));
+      if (this != &x)
+      {
+        static_cast< ::xml_schema::type& > (*this) = x;
+        this->riskName_ = x.riskName_;
+        this->list_ = x.list_;
+        this->responseCode_ = x.responseCode_;
+        this->responseMessage_ = x.responseMessage_;
+      }
+
+      return *this;
+    }
+
+    DataType::
+    ~DataType ()
+    {
+    }
+
+    // ListType
+    //
+
+    ListType::
+    ListType ()
+    : ::xml_schema::type (),
+      item_ (this)
+    {
+    }
+
+    ListType::
+    ListType (const ListType& x,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+    : ::xml_schema::type (x, f, c),
+      item_ (x.item_, f, this)
+    {
+    }
+
+    ListType::
+    ListType (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+    : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+      item_ (this)
+    {
+      if ((f & ::xml_schema::flags::base) == 0)
+      {
+        ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+        this->parse (p, f);
+      }
+    }
+
+    void ListType::
+    parse (::xsd::cxx::xml::dom::parser< char >& p,
+           ::xml_schema::flags f)
+    {
+      for (; p.more_content (); p.next_content (false))
+      {
+        const ::xercesc::DOMElement& i (p.cur_element ());
+        const ::xsd::cxx::xml::qualified_name< char > n (
+          ::xsd::cxx::xml::dom::name< char > (i));
+
+        // item
+        //
+        if (n.name () == "item" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< item_type > r (
+            item_traits::create (i, f, this));
+
+          this->item_.push_back (::std::move (r));
+          continue;
+        }
+
+        break;
+      }
+    }
+
+    ListType* ListType::
+    _clone (::xml_schema::flags f,
+            ::xml_schema::container* c) const
+    {
+      return new class ListType (*this, f, c);
+    }
+
+    ListType& ListType::
+    operator= (const ListType& x)
+    {
+      if (this != &x)
+      {
+        static_cast< ::xml_schema::type& > (*this) = x;
+        this->item_ = x.item_;
+      }
+
+      return *this;
+    }
+
+    ListType::
+    ~ListType ()
+    {
+    }
+
+    // ItemType
+    //
+
+    ItemType::
+    ItemType (const code_type& code,
+              const consolidate_type& consolidate,
+              const dataName_type& dataName,
+              const id_type& id)
+    : ::xml_schema::type (),
+      code_ (code, this),
+      consolidate_ (consolidate, this),
+      dataName_ (dataName, this),
+      fsiRule_ (this),
+      consolidationRule_ (this),
+      detail_ (this),
+      id_ (id, this),
+      sourceId_ (this)
+    {
+    }
+
+    ItemType::
+    ItemType (const ItemType& x,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+    : ::xml_schema::type (x, f, c),
+      code_ (x.code_, f, this),
+      consolidate_ (x.consolidate_, f, this),
+      dataName_ (x.dataName_, f, this),
+      fsiRule_ (x.fsiRule_, f, this),
+      consolidationRule_ (x.consolidationRule_, f, this),
+      detail_ (x.detail_, f, this),
+      id_ (x.id_, f, this),
+      sourceId_ (x.sourceId_, f, this)
+    {
+    }
+
+    ItemType::
+    ItemType (const ::xercesc::DOMElement& e,
+              ::xml_schema::flags f,
+              ::xml_schema::container* c)
+    : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+      code_ (this),
+      consolidate_ (this),
+      dataName_ (this),
+      fsiRule_ (this),
+      consolidationRule_ (this),
+      detail_ (this),
+      id_ (this),
+      sourceId_ (this)
+    {
+      if ((f & ::xml_schema::flags::base) == 0)
+      {
+        ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+        this->parse (p, f);
+      }
+    }
+
+    void ItemType::
+    parse (::xsd::cxx::xml::dom::parser< char >& p,
+           ::xml_schema::flags f)
+    {
+      for (; p.more_content (); p.next_content (false))
+      {
+        const ::xercesc::DOMElement& i (p.cur_element ());
+        const ::xsd::cxx::xml::qualified_name< char > n (
+          ::xsd::cxx::xml::dom::name< char > (i));
+
+        // code
+        //
+        if (n.name () == "code" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< code_type > r (
+            code_traits::create (i, f, this));
+
+          if (!code_.present ())
+          {
+            this->code_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // consolidate
+        //
+        if (n.name () == "consolidate" && n.namespace_ () == "http://example.com/inherent")
+        {
+          if (!consolidate_.present ())
+          {
+            this->consolidate_.set (consolidate_traits::create (i, f, this));
+            continue;
+          }
+        }
+
+        // dataName
+        //
+        if (n.name () == "dataName" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< dataName_type > r (
+            dataName_traits::create (i, f, this));
+
+          if (!dataName_.present ())
+          {
+            this->dataName_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // fsiRule
+        //
+        if (n.name () == "fsiRule" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< fsiRule_type > r (
+            fsiRule_traits::create (i, f, this));
+
+          if (!this->fsiRule_)
+          {
+            this->fsiRule_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // consolidationRule
+        //
+        if (n.name () == "consolidationRule" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< consolidationRule_type > r (
+            consolidationRule_traits::create (i, f, this));
+
+          if (!this->consolidationRule_)
+          {
+            this->consolidationRule_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // detail
+        //
+        if (n.name () == "detail" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< detail_type > r (
+            detail_traits::create (i, f, this));
+
+          if (!this->detail_)
+          {
+            this->detail_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // id
+        //
+        if (n.name () == "id" && n.namespace_ () == "http://example.com/inherent")
+        {
+          if (!id_.present ())
+          {
+            this->id_.set (id_traits::create (i, f, this));
+            continue;
+          }
+        }
+
+        // sourceId
+        //
+        if (n.name () == "sourceId" && n.namespace_ () == "http://example.com/inherent")
+        {
+          if (!this->sourceId_)
+          {
+            this->sourceId_.set (sourceId_traits::create (i, f, this));
+            continue;
+          }
+        }
+
+        break;
+      }
 
       if (!code_.present ())
       {
-        this->code_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "code",
+          "http://example.com/inherent");
       }
-    }
 
-    // consolidate
-    //
-    if (n.name () == "consolidate" && n.namespace_ ().empty ())
-    {
       if (!consolidate_.present ())
       {
-        this->consolidate_.set (consolidate_traits::create (i, f, this));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "consolidate",
+          "http://example.com/inherent");
       }
-    }
-
-    // dataName
-    //
-    if (n.name () == "dataName" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< dataName_type > r (
-        dataName_traits::create (i, f, this));
 
       if (!dataName_.present ())
       {
-        this->dataName_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "dataName",
+          "http://example.com/inherent");
       }
-    }
 
-    // fsiRule
-    //
-    if (n.name () == "fsiRule" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< fsiRule_type > r (
-        fsiRule_traits::create (i, f, this));
-
-      if (!this->fsiRule_)
-      {
-        this->fsiRule_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    // consolidationRule
-    //
-    if (n.name () == "consolidationRule" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< consolidationRule_type > r (
-        consolidationRule_traits::create (i, f, this));
-
-      if (!this->consolidationRule_)
-      {
-        this->consolidationRule_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    // detail
-    //
-    if (n.name () == "detail" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< detail_type > r (
-        detail_traits::create (i, f, this));
-
-      if (!detail_.present ())
-      {
-        this->detail_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    // id
-    //
-    if (n.name () == "id" && n.namespace_ ().empty ())
-    {
       if (!id_.present ())
       {
-        this->id_.set (id_traits::create (i, f, this));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "id",
+          "http://example.com/inherent");
       }
     }
 
-    // sourceId
-    //
-    if (n.name () == "sourceId" && n.namespace_ ().empty ())
+    ItemType* ItemType::
+    _clone (::xml_schema::flags f,
+            ::xml_schema::container* c) const
     {
-      if (!this->sourceId_)
+      return new class ItemType (*this, f, c);
+    }
+
+    ItemType& ItemType::
+    operator= (const ItemType& x)
+    {
+      if (this != &x)
       {
-        this->sourceId_.set (sourceId_traits::create (i, f, this));
-        continue;
+        static_cast< ::xml_schema::type& > (*this) = x;
+        this->code_ = x.code_;
+        this->consolidate_ = x.consolidate_;
+        this->dataName_ = x.dataName_;
+        this->fsiRule_ = x.fsiRule_;
+        this->consolidationRule_ = x.consolidationRule_;
+        this->detail_ = x.detail_;
+        this->id_ = x.id_;
+        this->sourceId_ = x.sourceId_;
+      }
+
+      return *this;
+    }
+
+    ItemType::
+    ~ItemType ()
+    {
+    }
+
+    // DetailType
+    //
+
+    DetailType::
+    DetailType ()
+    : ::xml_schema::type (),
+      row_ (this)
+    {
+    }
+
+    DetailType::
+    DetailType (const DetailType& x,
+                ::xml_schema::flags f,
+                ::xml_schema::container* c)
+    : ::xml_schema::type (x, f, c),
+      row_ (x.row_, f, this)
+    {
+    }
+
+    DetailType::
+    DetailType (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f,
+                ::xml_schema::container* c)
+    : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+      row_ (this)
+    {
+      if ((f & ::xml_schema::flags::base) == 0)
+      {
+        ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+        this->parse (p, f);
       }
     }
 
-    break;
-  }
-
-  if (!code_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "code",
-      "");
-  }
-
-  if (!consolidate_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "consolidate",
-      "");
-  }
-
-  if (!dataName_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "dataName",
-      "");
-  }
-
-  if (!detail_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "detail",
-      "");
-  }
-
-  if (!id_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "id",
-      "");
-  }
-}
-
-ItemType* ItemType::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class ItemType (*this, f, c);
-}
-
-ItemType& ItemType::
-operator= (const ItemType& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->code_ = x.code_;
-    this->consolidate_ = x.consolidate_;
-    this->dataName_ = x.dataName_;
-    this->fsiRule_ = x.fsiRule_;
-    this->consolidationRule_ = x.consolidationRule_;
-    this->detail_ = x.detail_;
-    this->id_ = x.id_;
-    this->sourceId_ = x.sourceId_;
-  }
-
-  return *this;
-}
-
-ItemType::
-~ItemType ()
-{
-}
-
-// DetailType
-//
-
-DetailType::
-DetailType ()
-: ::xml_schema::type (),
-  row_ (this)
-{
-}
-
-DetailType::
-DetailType (const DetailType& x,
-            ::xml_schema::flags f,
-            ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  row_ (x.row_, f, this)
-{
-}
-
-DetailType::
-DetailType (const ::xercesc::DOMElement& e,
-            ::xml_schema::flags f,
-            ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  row_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void DetailType::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // row
-    //
-    if (n.name () == "row" && n.namespace_ ().empty ())
+    void DetailType::
+    parse (::xsd::cxx::xml::dom::parser< char >& p,
+           ::xml_schema::flags f)
     {
-      ::std::unique_ptr< row_type > r (
-        row_traits::create (i, f, this));
+      for (; p.more_content (); p.next_content (false))
+      {
+        const ::xercesc::DOMElement& i (p.cur_element ());
+        const ::xsd::cxx::xml::qualified_name< char > n (
+          ::xsd::cxx::xml::dom::name< char > (i));
 
-      this->row_.push_back (::std::move (r));
-      continue;
+        // row
+        //
+        if (n.name () == "row" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< row_type > r (
+            row_traits::create (i, f, this));
+
+          this->row_.push_back (::std::move (r));
+          continue;
+        }
+
+        break;
+      }
     }
 
-    break;
-  }
-}
-
-DetailType* DetailType::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class DetailType (*this, f, c);
-}
-
-DetailType& DetailType::
-operator= (const DetailType& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->row_ = x.row_;
-  }
-
-  return *this;
-}
-
-DetailType::
-~DetailType ()
-{
-}
-
-// DetailRowType
-//
-
-DetailRowType::
-DetailRowType (const companyName_type& companyName,
-               const description_type& description,
-               const value_type& value)
-: ::xml_schema::type (),
-  companyName_ (companyName, this),
-  companyType_ (this),
-  description_ (description, this),
-  value_ (value, this)
-{
-}
-
-DetailRowType::
-DetailRowType (const DetailRowType& x,
-               ::xml_schema::flags f,
-               ::xml_schema::container* c)
-: ::xml_schema::type (x, f, c),
-  companyName_ (x.companyName_, f, this),
-  companyType_ (x.companyType_, f, this),
-  description_ (x.description_, f, this),
-  value_ (x.value_, f, this)
-{
-}
-
-DetailRowType::
-DetailRowType (const ::xercesc::DOMElement& e,
-               ::xml_schema::flags f,
-               ::xml_schema::container* c)
-: ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
-  companyName_ (this),
-  companyType_ (this),
-  description_ (this),
-  value_ (this)
-{
-  if ((f & ::xml_schema::flags::base) == 0)
-  {
-    ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
-    this->parse (p, f);
-  }
-}
-
-void DetailRowType::
-parse (::xsd::cxx::xml::dom::parser< char >& p,
-       ::xml_schema::flags f)
-{
-  for (; p.more_content (); p.next_content (false))
-  {
-    const ::xercesc::DOMElement& i (p.cur_element ());
-    const ::xsd::cxx::xml::qualified_name< char > n (
-      ::xsd::cxx::xml::dom::name< char > (i));
-
-    // companyName
-    //
-    if (n.name () == "companyName" && n.namespace_ ().empty ())
+    DetailType* DetailType::
+    _clone (::xml_schema::flags f,
+            ::xml_schema::container* c) const
     {
-      ::std::unique_ptr< companyName_type > r (
-        companyName_traits::create (i, f, this));
+      return new class DetailType (*this, f, c);
+    }
+
+    DetailType& DetailType::
+    operator= (const DetailType& x)
+    {
+      if (this != &x)
+      {
+        static_cast< ::xml_schema::type& > (*this) = x;
+        this->row_ = x.row_;
+      }
+
+      return *this;
+    }
+
+    DetailType::
+    ~DetailType ()
+    {
+    }
+
+    // DetailRowType
+    //
+
+    DetailRowType::
+    DetailRowType (const companyName_type& companyName,
+                   const description_type& description,
+                   const value_type& value)
+    : ::xml_schema::type (),
+      companyName_ (companyName, this),
+      companyType_ (this),
+      description_ (description, this),
+      value_ (value, this)
+    {
+    }
+
+    DetailRowType::
+    DetailRowType (const DetailRowType& x,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+    : ::xml_schema::type (x, f, c),
+      companyName_ (x.companyName_, f, this),
+      companyType_ (x.companyType_, f, this),
+      description_ (x.description_, f, this),
+      value_ (x.value_, f, this)
+    {
+    }
+
+    DetailRowType::
+    DetailRowType (const ::xercesc::DOMElement& e,
+                   ::xml_schema::flags f,
+                   ::xml_schema::container* c)
+    : ::xml_schema::type (e, f | ::xml_schema::flags::base, c),
+      companyName_ (this),
+      companyType_ (this),
+      description_ (this),
+      value_ (this)
+    {
+      if ((f & ::xml_schema::flags::base) == 0)
+      {
+        ::xsd::cxx::xml::dom::parser< char > p (e, true, false, false);
+        this->parse (p, f);
+      }
+    }
+
+    void DetailRowType::
+    parse (::xsd::cxx::xml::dom::parser< char >& p,
+           ::xml_schema::flags f)
+    {
+      for (; p.more_content (); p.next_content (false))
+      {
+        const ::xercesc::DOMElement& i (p.cur_element ());
+        const ::xsd::cxx::xml::qualified_name< char > n (
+          ::xsd::cxx::xml::dom::name< char > (i));
+
+        // companyName
+        //
+        if (n.name () == "companyName" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< companyName_type > r (
+            companyName_traits::create (i, f, this));
+
+          if (!companyName_.present ())
+          {
+            this->companyName_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // companyType
+        //
+        if (n.name () == "companyType" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< companyType_type > r (
+            companyType_traits::create (i, f, this));
+
+          if (!this->companyType_)
+          {
+            this->companyType_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // description
+        //
+        if (n.name () == "description" && n.namespace_ () == "http://example.com/inherent")
+        {
+          ::std::unique_ptr< description_type > r (
+            description_traits::create (i, f, this));
+
+          if (!description_.present ())
+          {
+            this->description_.set (::std::move (r));
+            continue;
+          }
+        }
+
+        // value
+        //
+        if (n.name () == "value" && n.namespace_ () == "http://example.com/inherent")
+        {
+          if (!value_.present ())
+          {
+            this->value_.set (value_traits::create (i, f, this));
+            continue;
+          }
+        }
+
+        break;
+      }
 
       if (!companyName_.present ())
       {
-        this->companyName_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "companyName",
+          "http://example.com/inherent");
       }
-    }
-
-    // companyType
-    //
-    if (n.name () == "companyType" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< companyType_type > r (
-        companyType_traits::create (i, f, this));
-
-      if (!this->companyType_)
-      {
-        this->companyType_.set (::std::move (r));
-        continue;
-      }
-    }
-
-    // description
-    //
-    if (n.name () == "description" && n.namespace_ ().empty ())
-    {
-      ::std::unique_ptr< description_type > r (
-        description_traits::create (i, f, this));
 
       if (!description_.present ())
       {
-        this->description_.set (::std::move (r));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "description",
+          "http://example.com/inherent");
       }
-    }
 
-    // value
-    //
-    if (n.name () == "value" && n.namespace_ ().empty ())
-    {
       if (!value_.present ())
       {
-        this->value_.set (value_traits::create (i, f, this));
-        continue;
+        throw ::xsd::cxx::tree::expected_element< char > (
+          "value",
+          "http://example.com/inherent");
       }
     }
 
-    break;
+    DetailRowType* DetailRowType::
+    _clone (::xml_schema::flags f,
+            ::xml_schema::container* c) const
+    {
+      return new class DetailRowType (*this, f, c);
+    }
+
+    DetailRowType& DetailRowType::
+    operator= (const DetailRowType& x)
+    {
+      if (this != &x)
+      {
+        static_cast< ::xml_schema::type& > (*this) = x;
+        this->companyName_ = x.companyName_;
+        this->companyType_ = x.companyType_;
+        this->description_ = x.description_;
+        this->value_ = x.value_;
+      }
+
+      return *this;
+    }
+
+    DetailRowType::
+    ~DetailRowType ()
+    {
+    }
   }
-
-  if (!companyName_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "companyName",
-      "");
-  }
-
-  if (!description_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "description",
-      "");
-  }
-
-  if (!value_.present ())
-  {
-    throw ::xsd::cxx::tree::expected_element< char > (
-      "value",
-      "");
-  }
-}
-
-DetailRowType* DetailRowType::
-_clone (::xml_schema::flags f,
-        ::xml_schema::container* c) const
-{
-  return new class DetailRowType (*this, f, c);
-}
-
-DetailRowType& DetailRowType::
-operator= (const DetailRowType& x)
-{
-  if (this != &x)
-  {
-    static_cast< ::xml_schema::type& > (*this) = x;
-    this->companyName_ = x.companyName_;
-    this->companyType_ = x.companyType_;
-    this->description_ = x.description_;
-    this->value_ = x.value_;
-  }
-
-  return *this;
-}
-
-DetailRowType::
-~DetailRowType ()
-{
 }
 
 #include <istream>
 #include <xsd/cxx/xml/sax/std-input-source.hxx>
 #include <xsd/cxx/tree/error-handler.hxx>
 
-::std::unique_ptr< ::DataType >
-data (const ::std::string& u,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
+namespace inherent
 {
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::DataType > (
-    ::data (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::DataType >
-data (const ::std::string& u,
-      ::xml_schema::error_handler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::DataType > (
-    ::data (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::DataType >
-data (const ::std::string& u,
-      ::xercesc::DOMErrorHandler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      u, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::DataType > (
-    ::data (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::data (isrc, f, p);
-}
-
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      ::xml_schema::error_handler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::data (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      ::xercesc::DOMErrorHandler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is);
-  return ::data (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      const ::std::string& sid,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::data (isrc, f, p);
-}
-
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      const ::std::string& sid,
-      ::xml_schema::error_handler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0,
-    (f & ::xml_schema::flags::keep_dom) == 0);
-
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::data (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      const ::std::string& sid,
-      ::xercesc::DOMErrorHandler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
-  return ::data (isrc, h, f, p);
-}
-
-::std::unique_ptr< ::DataType >
-data (::xercesc::InputSource& i,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
-
-  return ::std::unique_ptr< ::DataType > (
-    ::data (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::DataType >
-data (::xercesc::InputSource& i,
-      ::xml_schema::error_handler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::DataType > (
-    ::data (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::DataType >
-data (::xercesc::InputSource& i,
-      ::xercesc::DOMErrorHandler& h,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::parse< char > (
-      i, h, p, f));
-
-  if (!d.get ())
-    throw ::xsd::cxx::tree::parsing< char > ();
-
-  return ::std::unique_ptr< ::DataType > (
-    ::data (
-      std::move (d), f | ::xml_schema::flags::own_dom, p));
-}
-
-::std::unique_ptr< ::DataType >
-data (const ::xercesc::DOMDocument& doc,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties& p)
-{
-  if (f & ::xml_schema::flags::keep_dom)
+  namespace datasource
   {
-    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-      static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::std::string& u,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0,
+        (f & ::xml_schema::flags::keep_dom) == 0);
 
-    return ::std::unique_ptr< ::DataType > (
-      ::data (
-        std::move (d), f | ::xml_schema::flags::own_dom, p));
+      ::xsd::cxx::tree::error_handler< char > h;
+
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::xsd::cxx::xml::dom::parse< char > (
+          u, h, p, f));
+
+      h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+      return ::std::unique_ptr< ::inherent::datasource::DataType > (
+        ::inherent::datasource::data (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::std::string& u,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0,
+        (f & ::xml_schema::flags::keep_dom) == 0);
+
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::xsd::cxx::xml::dom::parse< char > (
+          u, h, p, f));
+
+      if (!d.get ())
+        throw ::xsd::cxx::tree::parsing< char > ();
+
+      return ::std::unique_ptr< ::inherent::datasource::DataType > (
+        ::inherent::datasource::data (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::std::string& u,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::xsd::cxx::xml::dom::parse< char > (
+          u, h, p, f));
+
+      if (!d.get ())
+        throw ::xsd::cxx::tree::parsing< char > ();
+
+      return ::std::unique_ptr< ::inherent::datasource::DataType > (
+        ::inherent::datasource::data (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0,
+        (f & ::xml_schema::flags::keep_dom) == 0);
+
+      ::xsd::cxx::xml::sax::std_input_source isrc (is);
+      return ::inherent::datasource::data (isrc, f, p);
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0,
+        (f & ::xml_schema::flags::keep_dom) == 0);
+
+      ::xsd::cxx::xml::sax::std_input_source isrc (is);
+      return ::inherent::datasource::data (isrc, h, f, p);
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::sax::std_input_source isrc (is);
+      return ::inherent::datasource::data (isrc, h, f, p);
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          const ::std::string& sid,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0,
+        (f & ::xml_schema::flags::keep_dom) == 0);
+
+      ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+      return ::inherent::datasource::data (isrc, f, p);
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          const ::std::string& sid,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0,
+        (f & ::xml_schema::flags::keep_dom) == 0);
+
+      ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+      return ::inherent::datasource::data (isrc, h, f, p);
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          const ::std::string& sid,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::xml::sax::std_input_source isrc (is, sid);
+      return ::inherent::datasource::data (isrc, h, f, p);
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xercesc::InputSource& i,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xsd::cxx::tree::error_handler< char > h;
+
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::xsd::cxx::xml::dom::parse< char > (
+          i, h, p, f));
+
+      h.throw_if_failed< ::xsd::cxx::tree::parsing< char > > ();
+
+      return ::std::unique_ptr< ::inherent::datasource::DataType > (
+        ::inherent::datasource::data (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xercesc::InputSource& i,
+          ::xml_schema::error_handler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::xsd::cxx::xml::dom::parse< char > (
+          i, h, p, f));
+
+      if (!d.get ())
+        throw ::xsd::cxx::tree::parsing< char > ();
+
+      return ::std::unique_ptr< ::inherent::datasource::DataType > (
+        ::inherent::datasource::data (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xercesc::InputSource& i,
+          ::xercesc::DOMErrorHandler& h,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::xsd::cxx::xml::dom::parse< char > (
+          i, h, p, f));
+
+      if (!d.get ())
+        throw ::xsd::cxx::tree::parsing< char > ();
+
+      return ::std::unique_ptr< ::inherent::datasource::DataType > (
+        ::inherent::datasource::data (
+          std::move (d), f | ::xml_schema::flags::own_dom, p));
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::xercesc::DOMDocument& doc,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties& p)
+    {
+      if (f & ::xml_schema::flags::keep_dom)
+      {
+        ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+          static_cast< ::xercesc::DOMDocument* > (doc.cloneNode (true)));
+
+        return ::std::unique_ptr< ::inherent::datasource::DataType > (
+          ::inherent::datasource::data (
+            std::move (d), f | ::xml_schema::flags::own_dom, p));
+      }
+
+      const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (e));
+
+      if (n.name () == "data" &&
+          n.namespace_ () == "http://example.com/inherent")
+      {
+        ::std::unique_ptr< ::inherent::datasource::DataType > r (
+          ::xsd::cxx::tree::traits< ::inherent::datasource::DataType, char >::create (
+            e, f, 0));
+        return r;
+      }
+
+      throw ::xsd::cxx::tree::unexpected_element < char > (
+        n.name (),
+        n.namespace_ (),
+        "data",
+        "http://example.com/inherent");
+    }
+
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+          ::xml_schema::flags f,
+          const ::xml_schema::properties&)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
+        ((f & ::xml_schema::flags::keep_dom) &&
+         !(f & ::xml_schema::flags::own_dom))
+        ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
+        : 0);
+
+      ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
+      const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
+
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (e));
+
+      if (f & ::xml_schema::flags::keep_dom)
+        doc.setUserData (::xml_schema::dom::tree_node_key,
+                         (c.get () ? &c : &d),
+                         0);
+
+      if (n.name () == "data" &&
+          n.namespace_ () == "http://example.com/inherent")
+      {
+        ::std::unique_ptr< ::inherent::datasource::DataType > r (
+          ::xsd::cxx::tree::traits< ::inherent::datasource::DataType, char >::create (
+            e, f, 0));
+        return r;
+      }
+
+      throw ::xsd::cxx::tree::unexpected_element < char > (
+        n.name (),
+        n.namespace_ (),
+        "data",
+        "http://example.com/inherent");
+    }
   }
-
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (n.name () == "data" &&
-      n.namespace_ () == "")
-  {
-    ::std::unique_ptr< ::DataType > r (
-      ::xsd::cxx::tree::traits< ::DataType, char >::create (
-        e, f, 0));
-    return r;
-  }
-
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "data",
-    "");
-}
-
-::std::unique_ptr< ::DataType >
-data (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-      ::xml_schema::flags f,
-      const ::xml_schema::properties&)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > c (
-    ((f & ::xml_schema::flags::keep_dom) &&
-     !(f & ::xml_schema::flags::own_dom))
-    ? static_cast< ::xercesc::DOMDocument* > (d->cloneNode (true))
-    : 0);
-
-  ::xercesc::DOMDocument& doc (c.get () ? *c : *d);
-  const ::xercesc::DOMElement& e (*doc.getDocumentElement ());
-
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
-
-  if (f & ::xml_schema::flags::keep_dom)
-    doc.setUserData (::xml_schema::dom::tree_node_key,
-                     (c.get () ? &c : &d),
-                     0);
-
-  if (n.name () == "data" &&
-      n.namespace_ () == "")
-  {
-    ::std::unique_ptr< ::DataType > r (
-      ::xsd::cxx::tree::traits< ::DataType, char >::create (
-        e, f, 0));
-    return r;
-  }
-
-  throw ::xsd::cxx::tree::unexpected_element < char > (
-    n.name (),
-    n.namespace_ (),
-    "data",
-    "");
 }
 
 #include <ostream>
 #include <xsd/cxx/tree/error-handler.hxx>
 #include <xsd/cxx/xml/dom/serialization-source.hxx>
 
-void
-data (::std::ostream& o,
-      const ::DataType& s,
-      const ::xml_schema::namespace_infomap& m,
-      const ::std::string& e,
-      ::xml_schema::flags f)
+namespace inherent
 {
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0);
-
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::data (s, m, f));
-
-  ::xsd::cxx::tree::error_handler< char > h;
-
-  ::xsd::cxx::xml::dom::ostream_format_target t (o);
-  if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
+  namespace datasource
   {
-    h.throw_if_failed< ::xsd::cxx::tree::serialization< char > > ();
-  }
-}
+    void
+    data (::std::ostream& o,
+          const ::inherent::datasource::DataType& s,
+          const ::xml_schema::namespace_infomap& m,
+          const ::std::string& e,
+          ::xml_schema::flags f)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0);
 
-void
-data (::std::ostream& o,
-      const ::DataType& s,
-      ::xml_schema::error_handler& h,
-      const ::xml_schema::namespace_infomap& m,
-      const ::std::string& e,
-      ::xml_schema::flags f)
-{
-  ::xsd::cxx::xml::auto_initializer i (
-    (f & ::xml_schema::flags::dont_initialize) == 0);
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::inherent::datasource::data (s, m, f));
 
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::data (s, m, f));
-  ::xsd::cxx::xml::dom::ostream_format_target t (o);
-  if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
-  {
-    throw ::xsd::cxx::tree::serialization< char > ();
-  }
-}
+      ::xsd::cxx::tree::error_handler< char > h;
 
-void
-data (::std::ostream& o,
-      const ::DataType& s,
-      ::xercesc::DOMErrorHandler& h,
-      const ::xml_schema::namespace_infomap& m,
-      const ::std::string& e,
-      ::xml_schema::flags f)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::data (s, m, f));
-  ::xsd::cxx::xml::dom::ostream_format_target t (o);
-  if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
-  {
-    throw ::xsd::cxx::tree::serialization< char > ();
-  }
-}
+      ::xsd::cxx::xml::dom::ostream_format_target t (o);
+      if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
+      {
+        h.throw_if_failed< ::xsd::cxx::tree::serialization< char > > ();
+      }
+    }
 
-void
-data (::xercesc::XMLFormatTarget& t,
-      const ::DataType& s,
-      const ::xml_schema::namespace_infomap& m,
-      const ::std::string& e,
-      ::xml_schema::flags f)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::data (s, m, f));
+    void
+    data (::std::ostream& o,
+          const ::inherent::datasource::DataType& s,
+          ::xml_schema::error_handler& h,
+          const ::xml_schema::namespace_infomap& m,
+          const ::std::string& e,
+          ::xml_schema::flags f)
+    {
+      ::xsd::cxx::xml::auto_initializer i (
+        (f & ::xml_schema::flags::dont_initialize) == 0);
 
-  ::xsd::cxx::tree::error_handler< char > h;
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::inherent::datasource::data (s, m, f));
+      ::xsd::cxx::xml::dom::ostream_format_target t (o);
+      if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
+      {
+        throw ::xsd::cxx::tree::serialization< char > ();
+      }
+    }
 
-  if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
-  {
-    h.throw_if_failed< ::xsd::cxx::tree::serialization< char > > ();
-  }
-}
+    void
+    data (::std::ostream& o,
+          const ::inherent::datasource::DataType& s,
+          ::xercesc::DOMErrorHandler& h,
+          const ::xml_schema::namespace_infomap& m,
+          const ::std::string& e,
+          ::xml_schema::flags f)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::inherent::datasource::data (s, m, f));
+      ::xsd::cxx::xml::dom::ostream_format_target t (o);
+      if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
+      {
+        throw ::xsd::cxx::tree::serialization< char > ();
+      }
+    }
 
-void
-data (::xercesc::XMLFormatTarget& t,
-      const ::DataType& s,
-      ::xml_schema::error_handler& h,
-      const ::xml_schema::namespace_infomap& m,
-      const ::std::string& e,
-      ::xml_schema::flags f)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::data (s, m, f));
-  if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
-  {
-    throw ::xsd::cxx::tree::serialization< char > ();
-  }
-}
+    void
+    data (::xercesc::XMLFormatTarget& t,
+          const ::inherent::datasource::DataType& s,
+          const ::xml_schema::namespace_infomap& m,
+          const ::std::string& e,
+          ::xml_schema::flags f)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::inherent::datasource::data (s, m, f));
 
-void
-data (::xercesc::XMLFormatTarget& t,
-      const ::DataType& s,
-      ::xercesc::DOMErrorHandler& h,
-      const ::xml_schema::namespace_infomap& m,
-      const ::std::string& e,
-      ::xml_schema::flags f)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::data (s, m, f));
-  if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
-  {
-    throw ::xsd::cxx::tree::serialization< char > ();
-  }
-}
+      ::xsd::cxx::tree::error_handler< char > h;
 
-void
-data (::xercesc::DOMDocument& d,
-      const ::DataType& s,
-      ::xml_schema::flags)
-{
-  ::xercesc::DOMElement& e (*d.getDocumentElement ());
-  const ::xsd::cxx::xml::qualified_name< char > n (
-    ::xsd::cxx::xml::dom::name< char > (e));
+      if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
+      {
+        h.throw_if_failed< ::xsd::cxx::tree::serialization< char > > ();
+      }
+    }
 
-  if (n.name () == "data" &&
-      n.namespace_ () == "")
-  {
-    e << s;
-  }
-  else
-  {
-    throw ::xsd::cxx::tree::unexpected_element < char > (
-      n.name (),
-      n.namespace_ (),
-      "data",
-      "");
-  }
-}
+    void
+    data (::xercesc::XMLFormatTarget& t,
+          const ::inherent::datasource::DataType& s,
+          ::xml_schema::error_handler& h,
+          const ::xml_schema::namespace_infomap& m,
+          const ::std::string& e,
+          ::xml_schema::flags f)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::inherent::datasource::data (s, m, f));
+      if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
+      {
+        throw ::xsd::cxx::tree::serialization< char > ();
+      }
+    }
 
-::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument >
-data (const ::DataType& s,
-      const ::xml_schema::namespace_infomap& m,
-      ::xml_schema::flags f)
-{
-  ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
-    ::xsd::cxx::xml::dom::serialize< char > (
-      "data",
-      "",
-      m, f));
+    void
+    data (::xercesc::XMLFormatTarget& t,
+          const ::inherent::datasource::DataType& s,
+          ::xercesc::DOMErrorHandler& h,
+          const ::xml_schema::namespace_infomap& m,
+          const ::std::string& e,
+          ::xml_schema::flags f)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::inherent::datasource::data (s, m, f));
+      if (!::xsd::cxx::xml::dom::serialize (t, *d, e, h, f))
+      {
+        throw ::xsd::cxx::tree::serialization< char > ();
+      }
+    }
 
-  ::data (*d, s, f);
-  return d;
-}
+    void
+    data (::xercesc::DOMDocument& d,
+          const ::inherent::datasource::DataType& s,
+          ::xml_schema::flags)
+    {
+      ::xercesc::DOMElement& e (*d.getDocumentElement ());
+      const ::xsd::cxx::xml::qualified_name< char > n (
+        ::xsd::cxx::xml::dom::name< char > (e));
 
-void
-operator<< (::xercesc::DOMElement& e, const DataType& i)
-{
-  e << static_cast< const ::xml_schema::type& > (i);
+      if (n.name () == "data" &&
+          n.namespace_ () == "http://example.com/inherent")
+      {
+        e << s;
+      }
+      else
+      {
+        throw ::xsd::cxx::tree::unexpected_element < char > (
+          n.name (),
+          n.namespace_ (),
+          "data",
+          "http://example.com/inherent");
+      }
+    }
 
-  // riskName
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "riskName",
-        e));
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument >
+    data (const ::inherent::datasource::DataType& s,
+          const ::xml_schema::namespace_infomap& m,
+          ::xml_schema::flags f)
+    {
+      ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d (
+        ::xsd::cxx::xml::dom::serialize< char > (
+          "data",
+          "http://example.com/inherent",
+          m, f));
 
-    s << i.riskName ();
-  }
+      ::inherent::datasource::data (*d, s, f);
+      return d;
+    }
 
-  // list
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "list",
-        e));
+    void
+    operator<< (::xercesc::DOMElement& e, const DataType& i)
+    {
+      e << static_cast< const ::xml_schema::type& > (i);
 
-    s << i.list ();
-  }
+      // riskName
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "riskName",
+            "http://example.com/inherent",
+            e));
 
-  // responseCode
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "responseCode",
-        e));
+        s << i.riskName ();
+      }
 
-    s << i.responseCode ();
-  }
+      // list
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "list",
+            "http://example.com/inherent",
+            e));
 
-  // responseMessage
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "responseMessage",
-        e));
+        s << i.list ();
+      }
 
-    s << i.responseMessage ();
-  }
-}
+      // responseCode
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "responseCode",
+            "http://example.com/inherent",
+            e));
 
-void
-operator<< (::xercesc::DOMElement& e, const ListType& i)
-{
-  e << static_cast< const ::xml_schema::type& > (i);
+        s << i.responseCode ();
+      }
 
-  // item
-  //
-  for (ListType::item_const_iterator
-       b (i.item ().begin ()), n (i.item ().end ());
-       b != n; ++b)
-  {
-    const ListType::item_type& x (*b);
+      // responseMessage
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "responseMessage",
+            "http://example.com/inherent",
+            e));
 
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "item",
-        e));
+        s << i.responseMessage ();
+      }
+    }
 
-    s << x;
-  }
-}
+    void
+    operator<< (::xercesc::DOMElement& e, const ListType& i)
+    {
+      e << static_cast< const ::xml_schema::type& > (i);
 
-void
-operator<< (::xercesc::DOMElement& e, const ItemType& i)
-{
-  e << static_cast< const ::xml_schema::type& > (i);
+      // item
+      //
+      for (ListType::item_const_iterator
+           b (i.item ().begin ()), n (i.item ().end ());
+           b != n; ++b)
+      {
+        const ListType::item_type& x (*b);
 
-  // code
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "code",
-        e));
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "item",
+            "http://example.com/inherent",
+            e));
 
-    s << i.code ();
-  }
+        s << x;
+      }
+    }
 
-  // consolidate
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "consolidate",
-        e));
+    void
+    operator<< (::xercesc::DOMElement& e, const ItemType& i)
+    {
+      e << static_cast< const ::xml_schema::type& > (i);
 
-    s << ::xml_schema::as_decimal(i.consolidate ());
-  }
+      // code
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "code",
+            "http://example.com/inherent",
+            e));
 
-  // dataName
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "dataName",
-        e));
+        s << i.code ();
+      }
 
-    s << i.dataName ();
-  }
+      // consolidate
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "consolidate",
+            "http://example.com/inherent",
+            e));
 
-  // fsiRule
-  //
-  if (i.fsiRule ())
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "fsiRule",
-        e));
+        s << ::xml_schema::as_decimal(i.consolidate ());
+      }
 
-    s << *i.fsiRule ();
-  }
+      // dataName
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "dataName",
+            "http://example.com/inherent",
+            e));
 
-  // consolidationRule
-  //
-  if (i.consolidationRule ())
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "consolidationRule",
-        e));
+        s << i.dataName ();
+      }
 
-    s << *i.consolidationRule ();
-  }
+      // fsiRule
+      //
+      if (i.fsiRule ())
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "fsiRule",
+            "http://example.com/inherent",
+            e));
 
-  // detail
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "detail",
-        e));
+        s << *i.fsiRule ();
+      }
 
-    s << i.detail ();
-  }
+      // consolidationRule
+      //
+      if (i.consolidationRule ())
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "consolidationRule",
+            "http://example.com/inherent",
+            e));
 
-  // id
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "id",
-        e));
+        s << *i.consolidationRule ();
+      }
 
-    s << i.id ();
-  }
+      // detail
+      //
+      if (i.detail ())
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "detail",
+            "http://example.com/inherent",
+            e));
 
-  // sourceId
-  //
-  if (i.sourceId ())
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "sourceId",
-        e));
+        s << *i.detail ();
+      }
 
-    s << *i.sourceId ();
-  }
-}
+      // id
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "id",
+            "http://example.com/inherent",
+            e));
 
-void
-operator<< (::xercesc::DOMElement& e, const DetailType& i)
-{
-  e << static_cast< const ::xml_schema::type& > (i);
+        s << i.id ();
+      }
 
-  // row
-  //
-  for (DetailType::row_const_iterator
-       b (i.row ().begin ()), n (i.row ().end ());
-       b != n; ++b)
-  {
-    const DetailType::row_type& x (*b);
+      // sourceId
+      //
+      if (i.sourceId ())
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "sourceId",
+            "http://example.com/inherent",
+            e));
 
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "row",
-        e));
+        s << *i.sourceId ();
+      }
+    }
 
-    s << x;
-  }
-}
+    void
+    operator<< (::xercesc::DOMElement& e, const DetailType& i)
+    {
+      e << static_cast< const ::xml_schema::type& > (i);
 
-void
-operator<< (::xercesc::DOMElement& e, const DetailRowType& i)
-{
-  e << static_cast< const ::xml_schema::type& > (i);
+      // row
+      //
+      for (DetailType::row_const_iterator
+           b (i.row ().begin ()), n (i.row ().end ());
+           b != n; ++b)
+      {
+        const DetailType::row_type& x (*b);
 
-  // companyName
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "companyName",
-        e));
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "row",
+            "http://example.com/inherent",
+            e));
 
-    s << i.companyName ();
-  }
+        s << x;
+      }
+    }
 
-  // companyType
-  //
-  if (i.companyType ())
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "companyType",
-        e));
+    void
+    operator<< (::xercesc::DOMElement& e, const DetailRowType& i)
+    {
+      e << static_cast< const ::xml_schema::type& > (i);
 
-    s << *i.companyType ();
-  }
+      // companyName
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "companyName",
+            "http://example.com/inherent",
+            e));
 
-  // description
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "description",
-        e));
+        s << i.companyName ();
+      }
 
-    s << i.description ();
-  }
+      // companyType
+      //
+      if (i.companyType ())
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "companyType",
+            "http://example.com/inherent",
+            e));
 
-  // value
-  //
-  {
-    ::xercesc::DOMElement& s (
-      ::xsd::cxx::xml::dom::create_element (
-        "value",
-        e));
+        s << *i.companyType ();
+      }
 
-    s << ::xml_schema::as_decimal(i.value ());
+      // description
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "description",
+            "http://example.com/inherent",
+            e));
+
+        s << i.description ();
+      }
+
+      // value
+      //
+      {
+        ::xercesc::DOMElement& s (
+          ::xsd::cxx::xml::dom::create_element (
+            "value",
+            "http://example.com/inherent",
+            e));
+
+        s << ::xml_schema::as_decimal(i.value ());
+      }
+    }
   }
 }
 

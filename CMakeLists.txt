@@ -30,6 +30,25 @@ if(NOT XERCES_INCLUDE_DIR OR NOT XERCES_LIBRARIES)
     message(FATAL_ERROR "Xerces-C not found")
 endif()
 
+# ANTLR4 Runtime
+find_path(ANTLR4_INCLUDE_DIR
+        NAMES antlr4-runtime.h
+        PATHS /opt/homebrew/include/antlr4-runtime
+        /usr/local/include/antlr4-runtime
+        /usr/include/antlr4-runtime
+)
+
+find_library(ANTLR4_LIBRARIES
+        NAMES antlr4-runtime
+        PATHS /opt/homebrew/lib
+        /usr/local/lib
+        /usr/lib
+)
+
+if(NOT ANTLR4_INCLUDE_DIR OR NOT ANTLR4_LIBRARIES)
+    message(FATAL_ERROR "ANTLR4 C++ runtime not found")
+endif()
+
 # Find all XSD schema files
 file(GLOB XSD_SCHEMAS "${CMAKE_CURRENT_SOURCE_DIR}/xsd/*.xsd")
 
@@ -47,11 +66,13 @@ add_custom_target(generate_bindings
 set(INHERENT_SOURCES
     gen/cpp/InherentDataSource.cxx
     gen/cpp/Weight.cxx
+    gen/cpp/InherentRiskProfile.cxx
 )
 
 set(KPMR_SOURCES
     gen/cpp/KPMRDataSource.cxx
     gen/cpp/Weight.cxx
+    gen/cpp/KPMRRiskProfile.cxx
 )
 
 # Create main library for Inherent datasource
@@ -156,6 +177,93 @@ target_link_libraries(kpmr_cli
     absl::log_initialize
     absl::log_internal_message
     pthread
+)
+
+# Define Threshold sources (used by multiple targets)
+set(THRESHOLD_SOURCES
+    gen/cpp/ThresholdGrammar/antlr4/ThresholdLexer.cpp
+    gen/cpp/ThresholdGrammar/antlr4/ThresholdParser.cpp
+    gen/cpp/ThresholdGrammar/antlr4/ThresholdBaseVisitor.cpp
+    gen/cpp/ThresholdGrammar/antlr4/ThresholdVisitor.cpp
+)
+
+# Add Risk Profile CLI executable
+add_executable(riskprofile_cli src/riskprofile_cli.cpp src/exprtkevaluator.cpp ${THRESHOLD_SOURCES})
+target_include_directories(riskprofile_cli PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/gen/cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/gen/cpp/ThresholdGrammar/antlr4
+    ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty
+    ${XERCES_INCLUDE_DIR}
+    ${ANTLR4_INCLUDE_DIR}
+)
+target_link_libraries(riskprofile_cli
+    ilfx_lib
+    kpmr_lib
+    ${XERCES_LIBRARIES}
+    ${ANTLR4_LIBRARIES}
+    absl::flags
+    absl::flags_parse
+    absl::log
+    absl::log_initialize
+    absl::log_internal_message
+    pthread
+)
+
+# Add Threshold CLI executable
+add_executable(threshold_cli src/threshold_cli.cpp ${THRESHOLD_SOURCES})
+target_include_directories(threshold_cli PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/gen/cpp/ThresholdGrammar/antlr4
+    ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty
+    ${ANTLR4_INCLUDE_DIR}
+)
+target_link_libraries(threshold_cli
+    ${ANTLR4_LIBRARIES}
+    absl::flags
+    absl::flags_parse
+    absl::log
+    absl::log_initialize
+    absl::log_internal_message
+    pthread
+)
+
+# Add ExprTk CLI executable
+add_executable(exprtk_cli src/exprtk_cli.cpp src/exprtkevaluator.cpp)
+target_include_directories(exprtk_cli PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty
+)
+target_link_libraries(exprtk_cli
+    absl::flags
+    absl::flags_parse
+    absl::log
+    absl::log_initialize
+    absl::log_internal_message
+    pthread
+)
+
+# Add Score Rating Parser CLI executable
+add_executable(scoreratingparser_cli src/scoreratingparser_cli.cpp src/scoreratingparser.cpp)
+target_include_directories(scoreratingparser_cli PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_link_libraries(scoreratingparser_cli
+    absl::flags
+    absl::flags_parse
+    absl::log
+    absl::log_initialize
+    absl::log_internal_message
+    pthread
+)
+# scoreratingparser uses C++20 ranges
+set_target_properties(scoreratingparser_cli PROPERTIES
+    CXX_STANDARD 20
+    CXX_STANDARD_REQUIRED ON
 )
 
 target_include_directories(inherent_datasource_test PRIVATE

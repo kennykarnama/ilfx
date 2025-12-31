@@ -4,6 +4,7 @@
 #include "allheaders.hpp"
 #include "InherentDataSource.hxx"
 #include "chaicli.hpp"
+#include "chaiscript/extras/math.hpp"
 #include "absl/log/log.h"
 #include "Weight.hxx"
 
@@ -25,6 +26,9 @@ namespace inherent::datasource
         // this will be populated when we are evaluating the FSI rules
         std::unordered_map<std::string, double> computedInputs;
 
+        // Helper function to set up ChaiScript evaluator with all necessary bindings
+        void setupChaiScriptEvaluator(chaiscript::ChaiScript& chai);
+
     public:
         Evaluator(const std::string &configPath, const std::string &weightPath);
         ~Evaluator();
@@ -40,6 +44,8 @@ namespace inherent::datasource
         };
 
         OperationStatus evaluate();
+
+        OperationStatus riskProfileEvaluation();
 
         // Return a map of company names to their corresponding vector of values for a given code
         chaiscript::Boxed_Value companyValuesByCode(const std::string &code);
@@ -73,13 +79,11 @@ namespace inherent::datasource
     {
     }
 
-    inline OperationStatus Evaluator::evaluate()
+    inline void Evaluator::setupChaiScriptEvaluator(chaiscript::ChaiScript& chai)
     {
-        // register built in functions for chaiscript if needed
-
-        // std::shared_ptr<chaiscript::ChaiScript> chai = cli->getChai();
-        chaiscript::ChaiScript chai;
-
+        auto mathlib = chaiscript::extras::math::bootstrap();
+        chai.add(mathlib);
+        
         chai.add(chaiscript::fun(
                      [this](const std::string &code)
                      {
@@ -121,6 +125,13 @@ namespace inherent::datasource
                          return this->findBankAndFinancingWeightByCompany(company);
                      }),
                  "findBankAndFinancingWeightByCompany");
+    }
+
+    inline OperationStatus Evaluator::evaluate()
+    {
+        // register built in functions for chaiscript if needed
+
+        // std::shared_ptr<chaiscript::ChaiScript> chai = cli->getChai();
         
 
         // first step, we need to evaluate all FSI rules and update the values accordingly
@@ -137,37 +148,42 @@ namespace inherent::datasource
                 fsiRule = item.fsiRule().get();
             }
 
-            for (auto &row : item.detail().row())
+            if (item.detail().present())
             {
-                
-                std::string companyName = row.companyName();
-                std::string companyType = "";
-                if (row.companyType().present())
+                for (auto &row : item.detail()->row())
                 {
-                    companyType = row.companyType().get();
-                }
+                    
+                    std::string companyName = row.companyName();
+                    std::string companyType = "";
+                    if (row.companyType().present())
+                    {
+                        companyType = row.companyType().get();
+                    }
 
-                double value = row.value();
+                    double value = row.value();
 
-                if (!fsiRule.empty())
-                {
-                    DLOG(INFO) << "Evaluating FSI Rule for code " << code << ": " << fsiRule;
+                    if (!fsiRule.empty())
+                    {
+                        DLOG(INFO) << "Evaluating FSI Rule for code " << code << ": " << fsiRule;
 
-                    // TODO: this can we made more flexible by providing an opaque object
-                    // that can be queried for data instead of injecting individual variables
-                    chai.add(chaiscript::var(code), "code");
-                    chai.add(chaiscript::var(companyName), "companyName");
-                    chai.add(chaiscript::var(companyType), "companyType");
-                    chai.add(chaiscript::var(value), "value");
+                        // TODO: this can we made more flexible by providing an opaque object
+                        // that can be queried for data instead of injecting individual variables
+                        chaiscript::ChaiScript chai;
+                        setupChaiScriptEvaluator(chai);
+                        
+                        chai.add(chaiscript::var(code), "code");
+                        chai.add(chaiscript::var(companyName), "companyName");
+                        chai.add(chaiscript::var(companyType), "companyType");
+                        chai.add(chaiscript::var(value), "value");
 
-                   chaiscript::Boxed_Value v =  chai.eval(fsiRule);
-                   double computedValue = chai.boxed_cast<double>(v);
+                        chaiscript::Boxed_Value v =  chai.eval(fsiRule);
+                        double computedValue = chai.boxed_cast<double>(v);
 
-                   // Update the row's value with the computed value
-                   row.value(computedValue);
+                        // Update the row's value with the computed value
+                        row.value(computedValue);
 
-                   DLOG(INFO) << "Computed value for company " << companyName << " and code " << code << ": " << computedValue;
-
+                        DLOG(INFO) << "Computed value for company " << companyName << " and code " << code << ": " << computedValue;
+                    }
                 }
             }
         }
@@ -187,6 +203,8 @@ namespace inherent::datasource
             {
                 DLOG(INFO) << "Evaluating Consolidation Rule for code " << item.code() << ": " << consolidationRule;
 
+                chaiscript::ChaiScript chai;
+                setupChaiScriptEvaluator(chai);
                 chaiscript::Boxed_Value v = chai.eval(consolidationRule);
                 double consolidatedValue = chai.boxed_cast<double>(v);
 
@@ -211,10 +229,13 @@ namespace inherent::datasource
             {
                 std::map<std::string, std::vector<double>> raw;
 
-                for (const auto &row : item.detail().row())
+                if (item.detail().present())
                 {
-                    LOG(INFO) << "Found row for company " << row.companyName() << " with value " << row.value();
-                    raw[row.companyName()] = {row.value()};
+                    for (const auto &row : item.detail()->row())
+                    {
+                        LOG(INFO) << "Found row for company " << row.companyName() << " with value " << row.value();
+                        raw[row.companyName()] = {row.value()};
+                    }
                 }
 
                 std::map<std::string, chaiscript::Boxed_Value> converted;
@@ -243,11 +264,14 @@ namespace inherent::datasource
         {
             if (item.code() == code)
             {
-                for (const auto &row : item.detail().row())
+                if (item.detail().present())
                 {
-                    if (row.companyName() == companyName)
+                    for (const auto &row : item.detail()->row())
                     {
-                        return chaiscript::var(row.value());
+                        if (row.companyName() == companyName)
+                        {
+                            return chaiscript::var(row.value());
+                        }
                     }
                 }
             }

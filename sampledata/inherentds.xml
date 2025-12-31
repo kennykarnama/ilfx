@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data
+    xmlns="http://example.com/inherent"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../xsd/InherentDataSource.xsd">
+    xsi:schemaLocation="http://example.com/inherent ../xsd/InherentDataSource.xsd">
     <riskName>Risiko Kredit</riskName>
     <list>
         <item>
             <code>SI01001000</code>
-            <consolidate>0</consolidate>
+            <consolidate>3</consolidate>
             <dataName>Total Aset</dataName>
             <detail>
                 <row>
@@ -32,7 +33,7 @@
         </item>
         <item>
             <code>SI01003000</code>
-            <consolidate>0</consolidate>
+            <consolidate>5</consolidate>
             <dataName>Nominal Aset Terbesar yang ada di Neraca LJK</dataName>
             <detail>
                 <row>

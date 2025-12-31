@@ -4,6 +4,7 @@
 // standard library headers
 #include <string>
 #include <memory>
+#include <iostream>
 
 // Operation status definitions
 enum OperationStatus

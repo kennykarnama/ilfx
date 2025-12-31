@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="../xsd/KPMRDataSource.xsd">
+<data xmlns="http://example.com/kpmr"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://example.com/kpmr ../xsd/KPMRDataSource.xsd">
     <riskName>Risiko Kredit</riskName>
     <list>
         <id>27</id>
@@ -266,6 +267,7 @@
                     return accs / c;
                     ]]>
                 </consolidationRule>
+                <consolidate>2</consolidate>
               
             </item>
             <item>

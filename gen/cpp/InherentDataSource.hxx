@@ -31,8 +31,8 @@
 // FLOSSE file.
 //
 
-#ifndef CXX_USERS_KENNY_GO_SRC_GITHUB_COM_KENNYKARNAMA_ILFX_XSD_INHERENT_DATA_SOURCE_HXX
-#define CXX_USERS_KENNY_GO_SRC_GITHUB_COM_KENNYKARNAMA_ILFX_XSD_INHERENT_DATA_SOURCE_HXX
+#ifndef CXX__XSD_INHERENT_DATA_SOURCE_HXX
+#define CXX__XSD_INHERENT_DATA_SOURCE_HXX
 
 #ifndef XSD_CXX11
 #define XSD_CXX11
@@ -252,11 +252,18 @@ namespace xml_schema
 
 // Forward declarations.
 //
-class DataType;
-class ListType;
-class ItemType;
-class DetailType;
-class DetailRowType;
+namespace inherent
+{
+  namespace datasource
+  {
+    class DataType;
+    class ListType;
+    class ItemType;
+    class DetailType;
+    class DetailRowType;
+  }
+}
+
 
 #include <memory>    // ::std::unique_ptr
 #include <limits>    // std::numeric_limits
@@ -272,528 +279,531 @@ class DetailRowType;
 
 #include <xsd/cxx/xml/dom/parsing-header.hxx>
 
-class DataType: public ::xml_schema::type
+namespace inherent
 {
-  public:
-  // riskName
-  //
-  typedef ::xml_schema::string riskName_type;
-  typedef ::xsd::cxx::tree::traits< riskName_type, char > riskName_traits;
+  namespace datasource
+  {
+    class DataType: public ::xml_schema::type
+    {
+      public:
+      // riskName
+      //
+      typedef ::xml_schema::string riskName_type;
+      typedef ::xsd::cxx::tree::traits< riskName_type, char > riskName_traits;
+
+      const riskName_type&
+      riskName () const;
 
-  const riskName_type&
-  riskName () const;
+      riskName_type&
+      riskName ();
+
+      void
+      riskName (const riskName_type& x);
+
+      void
+      riskName (::std::unique_ptr< riskName_type > p);
+
+      // list
+      //
+      typedef ::inherent::datasource::ListType list_type;
+      typedef ::xsd::cxx::tree::traits< list_type, char > list_traits;
+
+      const list_type&
+      list () const;
+
+      list_type&
+      list ();
+
+      void
+      list (const list_type& x);
+
+      void
+      list (::std::unique_ptr< list_type > p);
+
+      // responseCode
+      //
+      typedef ::xml_schema::string responseCode_type;
+      typedef ::xsd::cxx::tree::traits< responseCode_type, char > responseCode_traits;
+
+      const responseCode_type&
+      responseCode () const;
+
+      responseCode_type&
+      responseCode ();
+
+      void
+      responseCode (const responseCode_type& x);
+
+      void
+      responseCode (::std::unique_ptr< responseCode_type > p);
+
+      // responseMessage
+      //
+      typedef ::xml_schema::string responseMessage_type;
+      typedef ::xsd::cxx::tree::traits< responseMessage_type, char > responseMessage_traits;
+
+      const responseMessage_type&
+      responseMessage () const;
+
+      responseMessage_type&
+      responseMessage ();
+
+      void
+      responseMessage (const responseMessage_type& x);
+
+      void
+      responseMessage (::std::unique_ptr< responseMessage_type > p);
+
+      // Constructors.
+      //
+      DataType (const riskName_type&,
+                const list_type&,
+                const responseCode_type&,
+                const responseMessage_type&);
+
+      DataType (const riskName_type&,
+                ::std::unique_ptr< list_type >,
+                const responseCode_type&,
+                const responseMessage_type&);
+
+      DataType (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+      DataType (const DataType& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+      virtual DataType*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      DataType&
+      operator= (const DataType& x);
+
+      virtual 
+      ~DataType ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< riskName_type > riskName_;
+      ::xsd::cxx::tree::one< list_type > list_;
+      ::xsd::cxx::tree::one< responseCode_type > responseCode_;
+      ::xsd::cxx::tree::one< responseMessage_type > responseMessage_;
+    };
+
+    class ListType: public ::xml_schema::type
+    {
+      public:
+      // item
+      //
+      typedef ::inherent::datasource::ItemType item_type;
+      typedef ::xsd::cxx::tree::sequence< item_type > item_sequence;
+      typedef item_sequence::iterator item_iterator;
+      typedef item_sequence::const_iterator item_const_iterator;
+      typedef ::xsd::cxx::tree::traits< item_type, char > item_traits;
+
+      const item_sequence&
+      item () const;
+
+      item_sequence&
+      item ();
+
+      void
+      item (const item_sequence& s);
+
+      // Constructors.
+      //
+      ListType ();
+
+      ListType (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+      ListType (const ListType& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+      virtual ListType*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      ListType&
+      operator= (const ListType& x);
+
+      virtual 
+      ~ListType ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      item_sequence item_;
+    };
+
+    class ItemType: public ::xml_schema::type
+    {
+      public:
+      // code
+      //
+      typedef ::xml_schema::string code_type;
+      typedef ::xsd::cxx::tree::traits< code_type, char > code_traits;
+
+      const code_type&
+      code () const;
 
-  riskName_type&
-  riskName ();
+      code_type&
+      code ();
 
-  void
-  riskName (const riskName_type& x);
+      void
+      code (const code_type& x);
 
-  void
-  riskName (::std::unique_ptr< riskName_type > p);
-
-  // list
-  //
-  typedef ::ListType list_type;
-  typedef ::xsd::cxx::tree::traits< list_type, char > list_traits;
-
-  const list_type&
-  list () const;
-
-  list_type&
-  list ();
-
-  void
-  list (const list_type& x);
-
-  void
-  list (::std::unique_ptr< list_type > p);
-
-  // responseCode
-  //
-  typedef ::xml_schema::string responseCode_type;
-  typedef ::xsd::cxx::tree::traits< responseCode_type, char > responseCode_traits;
-
-  const responseCode_type&
-  responseCode () const;
-
-  responseCode_type&
-  responseCode ();
-
-  void
-  responseCode (const responseCode_type& x);
-
-  void
-  responseCode (::std::unique_ptr< responseCode_type > p);
-
-  // responseMessage
-  //
-  typedef ::xml_schema::string responseMessage_type;
-  typedef ::xsd::cxx::tree::traits< responseMessage_type, char > responseMessage_traits;
+      void
+      code (::std::unique_ptr< code_type > p);
 
-  const responseMessage_type&
-  responseMessage () const;
-
-  responseMessage_type&
-  responseMessage ();
-
-  void
-  responseMessage (const responseMessage_type& x);
-
-  void
-  responseMessage (::std::unique_ptr< responseMessage_type > p);
-
-  // Constructors.
-  //
-  DataType (const riskName_type&,
-            const list_type&,
-            const responseCode_type&,
-            const responseMessage_type&);
-
-  DataType (const riskName_type&,
-            ::std::unique_ptr< list_type >,
-            const responseCode_type&,
-            const responseMessage_type&);
-
-  DataType (const ::xercesc::DOMElement& e,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  DataType (const DataType& x,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  virtual DataType*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  DataType&
-  operator= (const DataType& x);
-
-  virtual 
-  ~DataType ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< riskName_type > riskName_;
-  ::xsd::cxx::tree::one< list_type > list_;
-  ::xsd::cxx::tree::one< responseCode_type > responseCode_;
-  ::xsd::cxx::tree::one< responseMessage_type > responseMessage_;
-};
-
-class ListType: public ::xml_schema::type
-{
-  public:
-  // item
-  //
-  typedef ::ItemType item_type;
-  typedef ::xsd::cxx::tree::sequence< item_type > item_sequence;
-  typedef item_sequence::iterator item_iterator;
-  typedef item_sequence::const_iterator item_const_iterator;
-  typedef ::xsd::cxx::tree::traits< item_type, char > item_traits;
-
-  const item_sequence&
-  item () const;
-
-  item_sequence&
-  item ();
-
-  void
-  item (const item_sequence& s);
-
-  // Constructors.
-  //
-  ListType ();
-
-  ListType (const ::xercesc::DOMElement& e,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  ListType (const ListType& x,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  virtual ListType*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  ListType&
-  operator= (const ListType& x);
-
-  virtual 
-  ~ListType ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  item_sequence item_;
-};
-
-class ItemType: public ::xml_schema::type
-{
-  public:
-  // code
-  //
-  typedef ::xml_schema::string code_type;
-  typedef ::xsd::cxx::tree::traits< code_type, char > code_traits;
+      // consolidate
+      //
+      typedef ::xml_schema::decimal consolidate_type;
+      typedef ::xsd::cxx::tree::traits< consolidate_type, char, ::xsd::cxx::tree::schema_type::decimal > consolidate_traits;
 
-  const code_type&
-  code () const;
+      const consolidate_type&
+      consolidate () const;
 
-  code_type&
-  code ();
+      consolidate_type&
+      consolidate ();
 
-  void
-  code (const code_type& x);
+      void
+      consolidate (const consolidate_type& x);
 
-  void
-  code (::std::unique_ptr< code_type > p);
+      // dataName
+      //
+      typedef ::xml_schema::string dataName_type;
+      typedef ::xsd::cxx::tree::traits< dataName_type, char > dataName_traits;
 
-  // consolidate
-  //
-  typedef ::xml_schema::decimal consolidate_type;
-  typedef ::xsd::cxx::tree::traits< consolidate_type, char, ::xsd::cxx::tree::schema_type::decimal > consolidate_traits;
+      const dataName_type&
+      dataName () const;
 
-  const consolidate_type&
-  consolidate () const;
+      dataName_type&
+      dataName ();
 
-  consolidate_type&
-  consolidate ();
+      void
+      dataName (const dataName_type& x);
 
-  void
-  consolidate (const consolidate_type& x);
+      void
+      dataName (::std::unique_ptr< dataName_type > p);
 
-  // dataName
-  //
-  typedef ::xml_schema::string dataName_type;
-  typedef ::xsd::cxx::tree::traits< dataName_type, char > dataName_traits;
+      // fsiRule
+      //
+      typedef ::xml_schema::string fsiRule_type;
+      typedef ::xsd::cxx::tree::optional< fsiRule_type > fsiRule_optional;
+      typedef ::xsd::cxx::tree::traits< fsiRule_type, char > fsiRule_traits;
 
-  const dataName_type&
-  dataName () const;
+      const fsiRule_optional&
+      fsiRule () const;
 
-  dataName_type&
-  dataName ();
+      fsiRule_optional&
+      fsiRule ();
 
-  void
-  dataName (const dataName_type& x);
+      void
+      fsiRule (const fsiRule_type& x);
 
-  void
-  dataName (::std::unique_ptr< dataName_type > p);
+      void
+      fsiRule (const fsiRule_optional& x);
 
-  // fsiRule
-  //
-  typedef ::xml_schema::string fsiRule_type;
-  typedef ::xsd::cxx::tree::optional< fsiRule_type > fsiRule_optional;
-  typedef ::xsd::cxx::tree::traits< fsiRule_type, char > fsiRule_traits;
+      void
+      fsiRule (::std::unique_ptr< fsiRule_type > p);
 
-  const fsiRule_optional&
-  fsiRule () const;
-
-  fsiRule_optional&
-  fsiRule ();
+      // consolidationRule
+      //
+      typedef ::xml_schema::string consolidationRule_type;
+      typedef ::xsd::cxx::tree::optional< consolidationRule_type > consolidationRule_optional;
+      typedef ::xsd::cxx::tree::traits< consolidationRule_type, char > consolidationRule_traits;
 
-  void
-  fsiRule (const fsiRule_type& x);
+      const consolidationRule_optional&
+      consolidationRule () const;
 
-  void
-  fsiRule (const fsiRule_optional& x);
-
-  void
-  fsiRule (::std::unique_ptr< fsiRule_type > p);
-
-  // consolidationRule
-  //
-  typedef ::xml_schema::string consolidationRule_type;
-  typedef ::xsd::cxx::tree::optional< consolidationRule_type > consolidationRule_optional;
-  typedef ::xsd::cxx::tree::traits< consolidationRule_type, char > consolidationRule_traits;
-
-  const consolidationRule_optional&
-  consolidationRule () const;
-
-  consolidationRule_optional&
-  consolidationRule ();
-
-  void
-  consolidationRule (const consolidationRule_type& x);
-
-  void
-  consolidationRule (const consolidationRule_optional& x);
-
-  void
-  consolidationRule (::std::unique_ptr< consolidationRule_type > p);
-
-  // detail
-  //
-  typedef ::DetailType detail_type;
-  typedef ::xsd::cxx::tree::traits< detail_type, char > detail_traits;
-
-  const detail_type&
-  detail () const;
-
-  detail_type&
-  detail ();
-
-  void
-  detail (const detail_type& x);
-
-  void
-  detail (::std::unique_ptr< detail_type > p);
-
-  // id
-  //
-  typedef ::xml_schema::int_ id_type;
-  typedef ::xsd::cxx::tree::traits< id_type, char > id_traits;
-
-  const id_type&
-  id () const;
-
-  id_type&
-  id ();
-
-  void
-  id (const id_type& x);
-
-  // sourceId
-  //
-  typedef ::xml_schema::int_ sourceId_type;
-  typedef ::xsd::cxx::tree::optional< sourceId_type > sourceId_optional;
-  typedef ::xsd::cxx::tree::traits< sourceId_type, char > sourceId_traits;
-
-  const sourceId_optional&
-  sourceId () const;
-
-  sourceId_optional&
-  sourceId ();
-
-  void
-  sourceId (const sourceId_type& x);
-
-  void
-  sourceId (const sourceId_optional& x);
-
-  // Constructors.
-  //
-  ItemType (const code_type&,
-            const consolidate_type&,
-            const dataName_type&,
-            const detail_type&,
-            const id_type&);
-
-  ItemType (const code_type&,
-            const consolidate_type&,
-            const dataName_type&,
-            ::std::unique_ptr< detail_type >,
-            const id_type&);
-
-  ItemType (const ::xercesc::DOMElement& e,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  ItemType (const ItemType& x,
-            ::xml_schema::flags f = 0,
-            ::xml_schema::container* c = 0);
-
-  virtual ItemType*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  ItemType&
-  operator= (const ItemType& x);
-
-  virtual 
-  ~ItemType ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< code_type > code_;
-  ::xsd::cxx::tree::one< consolidate_type > consolidate_;
-  ::xsd::cxx::tree::one< dataName_type > dataName_;
-  fsiRule_optional fsiRule_;
-  consolidationRule_optional consolidationRule_;
-  ::xsd::cxx::tree::one< detail_type > detail_;
-  ::xsd::cxx::tree::one< id_type > id_;
-  sourceId_optional sourceId_;
-};
-
-class DetailType: public ::xml_schema::type
-{
-  public:
-  // row
-  //
-  typedef ::DetailRowType row_type;
-  typedef ::xsd::cxx::tree::sequence< row_type > row_sequence;
-  typedef row_sequence::iterator row_iterator;
-  typedef row_sequence::const_iterator row_const_iterator;
-  typedef ::xsd::cxx::tree::traits< row_type, char > row_traits;
-
-  const row_sequence&
-  row () const;
-
-  row_sequence&
-  row ();
-
-  void
-  row (const row_sequence& s);
-
-  // Constructors.
-  //
-  DetailType ();
-
-  DetailType (const ::xercesc::DOMElement& e,
-              ::xml_schema::flags f = 0,
-              ::xml_schema::container* c = 0);
-
-  DetailType (const DetailType& x,
-              ::xml_schema::flags f = 0,
-              ::xml_schema::container* c = 0);
-
-  virtual DetailType*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  DetailType&
-  operator= (const DetailType& x);
-
-  virtual 
-  ~DetailType ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  row_sequence row_;
-};
-
-class DetailRowType: public ::xml_schema::type
-{
-  public:
-  // companyName
-  //
-  typedef ::xml_schema::string companyName_type;
-  typedef ::xsd::cxx::tree::traits< companyName_type, char > companyName_traits;
-
-  const companyName_type&
-  companyName () const;
-
-  companyName_type&
-  companyName ();
-
-  void
-  companyName (const companyName_type& x);
-
-  void
-  companyName (::std::unique_ptr< companyName_type > p);
-
-  // companyType
-  //
-  typedef ::xml_schema::string companyType_type;
-  typedef ::xsd::cxx::tree::optional< companyType_type > companyType_optional;
-  typedef ::xsd::cxx::tree::traits< companyType_type, char > companyType_traits;
-
-  const companyType_optional&
-  companyType () const;
-
-  companyType_optional&
-  companyType ();
-
-  void
-  companyType (const companyType_type& x);
-
-  void
-  companyType (const companyType_optional& x);
-
-  void
-  companyType (::std::unique_ptr< companyType_type > p);
-
-  // description
-  //
-  typedef ::xml_schema::string description_type;
-  typedef ::xsd::cxx::tree::traits< description_type, char > description_traits;
-
-  const description_type&
-  description () const;
-
-  description_type&
-  description ();
-
-  void
-  description (const description_type& x);
-
-  void
-  description (::std::unique_ptr< description_type > p);
-
-  // value
-  //
-  typedef ::xml_schema::decimal value_type;
-  typedef ::xsd::cxx::tree::traits< value_type, char, ::xsd::cxx::tree::schema_type::decimal > value_traits;
-
-  const value_type&
-  value () const;
-
-  value_type&
-  value ();
-
-  void
-  value (const value_type& x);
-
-  // Constructors.
-  //
-  DetailRowType (const companyName_type&,
-                 const description_type&,
-                 const value_type&);
-
-  DetailRowType (const ::xercesc::DOMElement& e,
-                 ::xml_schema::flags f = 0,
-                 ::xml_schema::container* c = 0);
-
-  DetailRowType (const DetailRowType& x,
-                 ::xml_schema::flags f = 0,
-                 ::xml_schema::container* c = 0);
-
-  virtual DetailRowType*
-  _clone (::xml_schema::flags f = 0,
-          ::xml_schema::container* c = 0) const;
-
-  DetailRowType&
-  operator= (const DetailRowType& x);
-
-  virtual 
-  ~DetailRowType ();
-
-  // Implementation.
-  //
-  protected:
-  void
-  parse (::xsd::cxx::xml::dom::parser< char >&,
-         ::xml_schema::flags);
-
-  protected:
-  ::xsd::cxx::tree::one< companyName_type > companyName_;
-  companyType_optional companyType_;
-  ::xsd::cxx::tree::one< description_type > description_;
-  ::xsd::cxx::tree::one< value_type > value_;
-};
+      consolidationRule_optional&
+      consolidationRule ();
+
+      void
+      consolidationRule (const consolidationRule_type& x);
+
+      void
+      consolidationRule (const consolidationRule_optional& x);
+
+      void
+      consolidationRule (::std::unique_ptr< consolidationRule_type > p);
+
+      // detail
+      //
+      typedef ::inherent::datasource::DetailType detail_type;
+      typedef ::xsd::cxx::tree::optional< detail_type > detail_optional;
+      typedef ::xsd::cxx::tree::traits< detail_type, char > detail_traits;
+
+      const detail_optional&
+      detail () const;
+
+      detail_optional&
+      detail ();
+
+      void
+      detail (const detail_type& x);
+
+      void
+      detail (const detail_optional& x);
+
+      void
+      detail (::std::unique_ptr< detail_type > p);
+
+      // id
+      //
+      typedef ::xml_schema::int_ id_type;
+      typedef ::xsd::cxx::tree::traits< id_type, char > id_traits;
+
+      const id_type&
+      id () const;
+
+      id_type&
+      id ();
+
+      void
+      id (const id_type& x);
+
+      // sourceId
+      //
+      typedef ::xml_schema::int_ sourceId_type;
+      typedef ::xsd::cxx::tree::optional< sourceId_type > sourceId_optional;
+      typedef ::xsd::cxx::tree::traits< sourceId_type, char > sourceId_traits;
+
+      const sourceId_optional&
+      sourceId () const;
+
+      sourceId_optional&
+      sourceId ();
+
+      void
+      sourceId (const sourceId_type& x);
+
+      void
+      sourceId (const sourceId_optional& x);
+
+      // Constructors.
+      //
+      ItemType (const code_type&,
+                const consolidate_type&,
+                const dataName_type&,
+                const id_type&);
+
+      ItemType (const ::xercesc::DOMElement& e,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+      ItemType (const ItemType& x,
+                ::xml_schema::flags f = 0,
+                ::xml_schema::container* c = 0);
+
+      virtual ItemType*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      ItemType&
+      operator= (const ItemType& x);
+
+      virtual 
+      ~ItemType ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< code_type > code_;
+      ::xsd::cxx::tree::one< consolidate_type > consolidate_;
+      ::xsd::cxx::tree::one< dataName_type > dataName_;
+      fsiRule_optional fsiRule_;
+      consolidationRule_optional consolidationRule_;
+      detail_optional detail_;
+      ::xsd::cxx::tree::one< id_type > id_;
+      sourceId_optional sourceId_;
+    };
+
+    class DetailType: public ::xml_schema::type
+    {
+      public:
+      // row
+      //
+      typedef ::inherent::datasource::DetailRowType row_type;
+      typedef ::xsd::cxx::tree::sequence< row_type > row_sequence;
+      typedef row_sequence::iterator row_iterator;
+      typedef row_sequence::const_iterator row_const_iterator;
+      typedef ::xsd::cxx::tree::traits< row_type, char > row_traits;
+
+      const row_sequence&
+      row () const;
+
+      row_sequence&
+      row ();
+
+      void
+      row (const row_sequence& s);
+
+      // Constructors.
+      //
+      DetailType ();
+
+      DetailType (const ::xercesc::DOMElement& e,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+      DetailType (const DetailType& x,
+                  ::xml_schema::flags f = 0,
+                  ::xml_schema::container* c = 0);
+
+      virtual DetailType*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      DetailType&
+      operator= (const DetailType& x);
+
+      virtual 
+      ~DetailType ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      row_sequence row_;
+    };
+
+    class DetailRowType: public ::xml_schema::type
+    {
+      public:
+      // companyName
+      //
+      typedef ::xml_schema::string companyName_type;
+      typedef ::xsd::cxx::tree::traits< companyName_type, char > companyName_traits;
+
+      const companyName_type&
+      companyName () const;
+
+      companyName_type&
+      companyName ();
+
+      void
+      companyName (const companyName_type& x);
+
+      void
+      companyName (::std::unique_ptr< companyName_type > p);
+
+      // companyType
+      //
+      typedef ::xml_schema::string companyType_type;
+      typedef ::xsd::cxx::tree::optional< companyType_type > companyType_optional;
+      typedef ::xsd::cxx::tree::traits< companyType_type, char > companyType_traits;
+
+      const companyType_optional&
+      companyType () const;
+
+      companyType_optional&
+      companyType ();
+
+      void
+      companyType (const companyType_type& x);
+
+      void
+      companyType (const companyType_optional& x);
+
+      void
+      companyType (::std::unique_ptr< companyType_type > p);
+
+      // description
+      //
+      typedef ::xml_schema::string description_type;
+      typedef ::xsd::cxx::tree::traits< description_type, char > description_traits;
+
+      const description_type&
+      description () const;
+
+      description_type&
+      description ();
+
+      void
+      description (const description_type& x);
+
+      void
+      description (::std::unique_ptr< description_type > p);
+
+      // value
+      //
+      typedef ::xml_schema::decimal value_type;
+      typedef ::xsd::cxx::tree::traits< value_type, char, ::xsd::cxx::tree::schema_type::decimal > value_traits;
+
+      const value_type&
+      value () const;
+
+      value_type&
+      value ();
+
+      void
+      value (const value_type& x);
+
+      // Constructors.
+      //
+      DetailRowType (const companyName_type&,
+                     const description_type&,
+                     const value_type&);
+
+      DetailRowType (const ::xercesc::DOMElement& e,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      DetailRowType (const DetailRowType& x,
+                     ::xml_schema::flags f = 0,
+                     ::xml_schema::container* c = 0);
+
+      virtual DetailRowType*
+      _clone (::xml_schema::flags f = 0,
+              ::xml_schema::container* c = 0) const;
+
+      DetailRowType&
+      operator= (const DetailRowType& x);
+
+      virtual 
+      ~DetailRowType ();
+
+      // Implementation.
+      //
+      protected:
+      void
+      parse (::xsd::cxx::xml::dom::parser< char >&,
+             ::xml_schema::flags);
+
+      protected:
+      ::xsd::cxx::tree::one< companyName_type > companyName_;
+      companyType_optional companyType_;
+      ::xsd::cxx::tree::one< description_type > description_;
+      ::xsd::cxx::tree::one< value_type > value_;
+    };
+  }
+}
 
 #include <iosfwd>
 
@@ -801,98 +811,104 @@ class DetailRowType: public ::xml_schema::type
 #include <xercesc/dom/DOMDocument.hpp>
 #include <xercesc/dom/DOMErrorHandler.hpp>
 
-// Parse a URI or a local file.
-//
+namespace inherent
+{
+  namespace datasource
+  {
+    // Parse a URI or a local file.
+    //
 
-::std::unique_ptr< ::DataType >
-data (const ::std::string& uri,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::std::string& uri,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (const ::std::string& uri,
-      ::xml_schema::error_handler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::std::string& uri,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (const ::std::string& uri,
-      ::xercesc::DOMErrorHandler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::std::string& uri,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse std::istream.
-//
+    // Parse std::istream.
+    //
 
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      ::xml_schema::error_handler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      ::xercesc::DOMErrorHandler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      const ::std::string& id,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          const ::std::string& id,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      const ::std::string& id,
-      ::xml_schema::error_handler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          const ::std::string& id,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::std::istream& is,
-      const ::std::string& id,
-      ::xercesc::DOMErrorHandler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::std::istream& is,
+          const ::std::string& id,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::InputSource.
-//
+    // Parse xercesc::InputSource.
+    //
 
-::std::unique_ptr< ::DataType >
-data (::xercesc::InputSource& is,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xercesc::InputSource& is,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::xercesc::InputSource& is,
-      ::xml_schema::error_handler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xercesc::InputSource& is,
+          ::xml_schema::error_handler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::xercesc::InputSource& is,
-      ::xercesc::DOMErrorHandler& eh,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xercesc::InputSource& is,
+          ::xercesc::DOMErrorHandler& eh,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-// Parse xercesc::DOMDocument.
-//
+    // Parse xercesc::DOMDocument.
+    //
 
-::std::unique_ptr< ::DataType >
-data (const ::xercesc::DOMDocument& d,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (const ::xercesc::DOMDocument& d,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
 
-::std::unique_ptr< ::DataType >
-data (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
-      ::xml_schema::flags f = 0,
-      const ::xml_schema::properties& p = ::xml_schema::properties ());
+    ::std::unique_ptr< ::inherent::datasource::DataType >
+    data (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
+          ::xml_schema::flags f = 0,
+          const ::xml_schema::properties& p = ::xml_schema::properties ());
+  }
+}
 
 #include <iosfwd>
 
@@ -902,88 +918,94 @@ data (::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument > d,
 
 #include <xsd/cxx/xml/dom/auto-ptr.hxx>
 
-// Serialize to std::ostream.
-//
+namespace inherent
+{
+  namespace datasource
+  {
+    // Serialize to std::ostream.
+    //
 
-void
-data (::std::ostream& os,
-      const ::DataType& x, 
-      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-      const ::std::string& e = "UTF-8",
-      ::xml_schema::flags f = 0);
+    void
+    data (::std::ostream& os,
+          const ::inherent::datasource::DataType& x, 
+          const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+          const ::std::string& e = "UTF-8",
+          ::xml_schema::flags f = 0);
 
-void
-data (::std::ostream& os,
-      const ::DataType& x, 
-      ::xml_schema::error_handler& eh,
-      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-      const ::std::string& e = "UTF-8",
-      ::xml_schema::flags f = 0);
+    void
+    data (::std::ostream& os,
+          const ::inherent::datasource::DataType& x, 
+          ::xml_schema::error_handler& eh,
+          const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+          const ::std::string& e = "UTF-8",
+          ::xml_schema::flags f = 0);
 
-void
-data (::std::ostream& os,
-      const ::DataType& x, 
-      ::xercesc::DOMErrorHandler& eh,
-      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-      const ::std::string& e = "UTF-8",
-      ::xml_schema::flags f = 0);
+    void
+    data (::std::ostream& os,
+          const ::inherent::datasource::DataType& x, 
+          ::xercesc::DOMErrorHandler& eh,
+          const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+          const ::std::string& e = "UTF-8",
+          ::xml_schema::flags f = 0);
 
-// Serialize to xercesc::XMLFormatTarget.
-//
+    // Serialize to xercesc::XMLFormatTarget.
+    //
 
-void
-data (::xercesc::XMLFormatTarget& ft,
-      const ::DataType& x, 
-      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-      const ::std::string& e = "UTF-8",
-      ::xml_schema::flags f = 0);
+    void
+    data (::xercesc::XMLFormatTarget& ft,
+          const ::inherent::datasource::DataType& x, 
+          const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+          const ::std::string& e = "UTF-8",
+          ::xml_schema::flags f = 0);
 
-void
-data (::xercesc::XMLFormatTarget& ft,
-      const ::DataType& x, 
-      ::xml_schema::error_handler& eh,
-      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-      const ::std::string& e = "UTF-8",
-      ::xml_schema::flags f = 0);
+    void
+    data (::xercesc::XMLFormatTarget& ft,
+          const ::inherent::datasource::DataType& x, 
+          ::xml_schema::error_handler& eh,
+          const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+          const ::std::string& e = "UTF-8",
+          ::xml_schema::flags f = 0);
 
-void
-data (::xercesc::XMLFormatTarget& ft,
-      const ::DataType& x, 
-      ::xercesc::DOMErrorHandler& eh,
-      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-      const ::std::string& e = "UTF-8",
-      ::xml_schema::flags f = 0);
+    void
+    data (::xercesc::XMLFormatTarget& ft,
+          const ::inherent::datasource::DataType& x, 
+          ::xercesc::DOMErrorHandler& eh,
+          const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+          const ::std::string& e = "UTF-8",
+          ::xml_schema::flags f = 0);
 
-// Serialize to an existing xercesc::DOMDocument.
-//
+    // Serialize to an existing xercesc::DOMDocument.
+    //
 
-void
-data (::xercesc::DOMDocument& d,
-      const ::DataType& x,
-      ::xml_schema::flags f = 0);
+    void
+    data (::xercesc::DOMDocument& d,
+          const ::inherent::datasource::DataType& x,
+          ::xml_schema::flags f = 0);
 
-// Serialize to a new xercesc::DOMDocument.
-//
+    // Serialize to a new xercesc::DOMDocument.
+    //
 
-::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument >
-data (const ::DataType& x, 
-      const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
-      ::xml_schema::flags f = 0);
+    ::xml_schema::dom::unique_ptr< ::xercesc::DOMDocument >
+    data (const ::inherent::datasource::DataType& x, 
+          const ::xml_schema::namespace_infomap& m = ::xml_schema::namespace_infomap (),
+          ::xml_schema::flags f = 0);
 
-void
-operator<< (::xercesc::DOMElement&, const DataType&);
+    void
+    operator<< (::xercesc::DOMElement&, const DataType&);
 
-void
-operator<< (::xercesc::DOMElement&, const ListType&);
+    void
+    operator<< (::xercesc::DOMElement&, const ListType&);
 
-void
-operator<< (::xercesc::DOMElement&, const ItemType&);
+    void
+    operator<< (::xercesc::DOMElement&, const ItemType&);
 
-void
-operator<< (::xercesc::DOMElement&, const DetailType&);
+    void
+    operator<< (::xercesc::DOMElement&, const DetailType&);
 
-void
-operator<< (::xercesc::DOMElement&, const DetailRowType&);
+    void
+    operator<< (::xercesc::DOMElement&, const DetailRowType&);
+  }
+}
 
 #include <xsd/cxx/post.hxx>
 
@@ -992,4 +1014,4 @@ operator<< (::xercesc::DOMElement&, const DetailRowType&);
 //
 // End epilogue.
 
-#endif // CXX_USERS_KENNY_GO_SRC_GITHUB_COM_KENNYKARNAMA_ILFX_XSD_INHERENT_DATA_SOURCE_HXX
+#endif // CXX__XSD_INHERENT_DATA_SOURCE_HXX
