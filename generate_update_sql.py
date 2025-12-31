@@ -17,12 +17,12 @@ def extract_cdata(text):
     return None
 
 def escape_sql_string(s):
-    """Escape string for PostgreSQL."""
+    """Escape string for PostgreSQL using dollar-quoted strings."""
     if s is None:
         return 'NULL'
-    # Replace single quotes with two single quotes for SQL escaping
-    escaped = s.replace("'", "''")
-    return f"'{escaped}'"
+    # Use dollar-quoted strings to avoid escaping issues
+    # This handles single quotes, newlines, and other special chars
+    return f"$$\n{s}\n$$"
 
 def process_xml_file(filepath, table_name='risk_items'):
     """Process XML file and generate UPDATE statements."""
@@ -70,18 +70,18 @@ def process_xml_file(filepath, table_name='risk_items'):
 def main():
     # Process both inherent and KPMR data files
     xml_patterns = [
-        'testdata/inherentds_*.xml',
-        'testdata/kpmrds_*.xml'
+        ('testdata/inherentds_*.xml', 'inherent_source'),
+        ('testdata/kpmrds_*.xml', 'kpmr_source')
     ]
     
     all_updates = []
     
-    for pattern in xml_patterns:
+    for pattern, table_name in xml_patterns:
         files = sorted(glob.glob(pattern))
         for filepath in files:
             basename = os.path.basename(filepath)
             print(f"-- Processing {basename}", file=open('update_rules.sql', 'a'))
-            updates = process_xml_file(filepath)
+            updates = process_xml_file(filepath, table_name=table_name)
             all_updates.extend(updates)
     
     # Write to SQL file
