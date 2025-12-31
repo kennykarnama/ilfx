@@ -4,6 +4,7 @@
 #include "allheaders.hpp"
 #include "KPMRDataSource.hxx"
 #include "chaicli.hpp"
+#include "chaiscript/extras/math.hpp"
 #include "absl/log/log.h"
 #include "Weight.hxx"
 #include <unordered_set>
@@ -28,6 +29,9 @@ namespace kpmr::datasource
         // Cache consolidated values by group/item id to avoid re-evaluation
         std::unordered_map<std::string, int> consolidatedCache;
         std::unordered_set<std::string> visiting;
+
+        // Helper function to set up ChaiScript evaluator with all necessary bindings
+        void setupChaiScriptEvaluator(chaiscript::ChaiScript& chai);
 
     public:
         Evaluator(const std::string &configPath, const std::string &weightPath);
@@ -82,6 +86,54 @@ namespace kpmr::datasource
 
     Evaluator::~Evaluator()
     {
+    }
+
+    inline void Evaluator::setupChaiScriptEvaluator(chaiscript::ChaiScript& chai)
+    {
+        auto mathlib = chaiscript::extras::math::bootstrap();
+        chai.add(mathlib);
+        
+        chai.add(chaiscript::fun(
+                     [this](const std::string &code)
+                     {
+                         return this->companyValuesByCode(code);
+                     }),
+                 "companyValuesByCode");
+
+        chai.add(chaiscript::fun(
+                     [this](const std::string &code, const std::string &companyName, double values)
+                     {
+                         return this->updateCompanyInputByValues(code, companyName, values);
+                     }),
+                 "updateCompanyInputByValues");
+
+        chai.add(chaiscript::fun(
+                     [this](const std::string &code, const std::string &companyName)
+                     {
+                         return this->companyValuesByCodeAndCompanyName(code, companyName);
+                     }),
+                 "companyValuesByCodeAndCompanyName");
+        
+        chai.add(chaiscript::fun(
+                     [this](const std::string &company)
+                     {
+                         return this->findWeightByCompany(company);
+                     }),
+                 "findWeightByCompany");
+
+        chai.add(chaiscript::fun(
+                     [this](const std::string &companyType)
+                     {
+                         return this->findWeightByCompanyType(companyType);
+                     }),
+                 "findWeightByCompanyType");
+
+        chai.add(chaiscript::fun(
+                     [this](const std::string &company)
+                     {
+                         return this->findBankAndFinancingWeightByCompany(company);
+                     }),
+                 "findBankAndFinancingWeightByCompany");
     }
 
     inline OperationStatus Evaluator::evaluate()
@@ -169,32 +221,13 @@ namespace kpmr::datasource
             if (!consolidationRule.empty())
             {
                 chaiscript::ChaiScript chai;
-
-                // Register helper functions
-                chai.add(chaiscript::fun([this](const std::string &c)
-                                         { return this->companyValuesByCode(c); }),
-                         "companyValuesByCode");
-                chai.add(chaiscript::fun([this](const std::string &c, const std::string &n, double v)
-                                         { return this->updateCompanyInputByValues(c, n, v); }),
-                         "updateCompanyInputByValues");
-                chai.add(chaiscript::fun([this](const std::string &c, const std::string &n)
-                                         { return this->companyValuesByCodeAndCompanyName(c, n); }),
-                         "companyValuesByCodeAndCompanyName");
-                chai.add(chaiscript::fun([this](const std::string &company)
-                                         { return this->findWeightByCompany(company); }),
-                         "findWeightByCompany");
-                chai.add(chaiscript::fun([this](const std::string &companyType)
-                                         { return this->findWeightByCompanyType(companyType); }),
-                         "findWeightByCompanyType");
-                chai.add(chaiscript::fun([this](const std::string &company)
-                                         { return this->findBankAndFinancingWeightByCompany(company); }),
-                         "findBankAndFinancingWeightByCompany");
+                setupChaiScriptEvaluator(chai);
 
                 chai.add(chaiscript::var(childrenValues), "childrenValues");
 
                 LOG(INFO) << "Evaluating Consolidation Rule for item " << item.code() << ": " << consolidationRule;
                 chaiscript::Boxed_Value v = chai.eval(consolidationRule);
-                int consolidatedValue = chai.boxed_cast<int>(v);
+                int consolidatedValue = chai.boxed_cast<double>(v);
                 item.consolidate(consolidatedValue);
                 LOG(INFO) << "Consolidated value for item " << item.id() << ": " << consolidatedValue;
             }

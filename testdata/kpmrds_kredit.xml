@@ -438,7 +438,6 @@ return round(total_sum / total_count);
         </detail>
         <consolidationRule>
          <![CDATA[
-         <![CDATA[
 var items = companyValuesByCode("SK01001001");
 var total_sum = 0.0;
 var total_count = 0;
