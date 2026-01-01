@@ -3329,6 +3329,131 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
     <weight>0.000000</weight>
     <ID>638</ID>
     <Risk_ID>9</Risk_ID>
+    <score_rule>
+      <![CDATA[
+      // RI0200200100: SI02020000
+      var cv1 = findConsolidateByCode("SI02020000");
+      var r1 = ratingByThreshold(threshold, cv1);
+      var s1 = scoreByRating(rating_to_score, r1);
+      var w1 = weightByCode("RI0200200100");
+      var res1 = s1 * w1 * 1.0;
+
+      // RI0200200200: SI02021000
+      var cv2 = findConsolidateByCode("SI02021000");
+      var r2 = ratingByThreshold(threshold, cv2);
+      var s2 = scoreByRating(rating_to_score, r2);
+      var w2 = weightByCode("RI0200200200");
+      var res2 = s2 * w2 * 1.0;
+
+      // RI0200200300: SI02022000 / SI02023000
+      var n3 = findConsolidateByCode("SI02022000");
+      var d3 = findConsolidateByCode("SI02023000");
+      if (d3 == 0) { d3 = 1; }
+      var r3val = n3 / d3;
+      var r3 = ratingByThreshold(threshold, r3val);
+      var s3 = scoreByRating(rating_to_score, r3);
+      var w3 = weightByCode("RI0200200300");
+      var res3 = s3 * w3 * 1.0;
+
+      // RI0200200400: SI02025000
+      var cv4 = findConsolidateByCode("SI02025000");
+      var r4 = ratingByThreshold(threshold, cv4);
+      var s4 = scoreByRating(rating_to_score, r4);
+      var w4 = weightByCode("RI0200200400");
+      var res4 = s4 * w4 * 1.0;
+
+      // RI0200200500: SI02026000 / SI02001000
+      var n5 = findConsolidateByCode("SI02026000");
+      var d5 = findConsolidateByCode("SI02001000");
+      if (d5 == 0) { d5 = 1; }
+      var r5val = n5 / d5;
+      var r5 = ratingByThreshold(threshold, r5val);
+      var s5 = scoreByRating(rating_to_score, r5);
+      var w5 = weightByCode("RI0200200500");
+      var res5 = s5 * w5 * 1.0;
+
+      // RI0200200600: SI02026000 / SI02027000
+      var n6 = findConsolidateByCode("SI02026000");
+      var d6 = findConsolidateByCode("SI02027000");
+      if (d6 == 0) { d6 = 1; }
+      var r6val = n6 / d6;
+      var r6 = ratingByThreshold(threshold, r6val);
+      var s6 = scoreByRating(rating_to_score, r6);
+      var w6 = weightByCode("RI0200200600");
+      var res6 = s6 * w6 * 1.0;
+
+      // RI0200200700: SI02028000 / SI02001000
+      var n7 = findConsolidateByCode("SI02028000");
+      var d7 = findConsolidateByCode("SI02001000");
+      if (d7 == 0) { d7 = 1; }
+      var r7val = n7 / d7;
+      var r7 = ratingByThreshold(threshold, r7val);
+      var s7 = scoreByRating(rating_to_score, r7);
+      var w7 = weightByCode("RI0200200700");
+      var res7 = s7 * w7 * 1.0;
+
+      // RI0200200800: SI02029000
+      var cv8 = findConsolidateByCode("SI02029000");
+      var r8 = ratingByThreshold(threshold, cv8);
+      var s8 = scoreByRating(rating_to_score, r8);
+      var w8 = weightByCode("RI0200200800");
+      var res8 = s8 * w8 * 1.0;
+
+      // RI0200200900: SI02028000 / SI02027000
+      var n9 = findConsolidateByCode("SI02028000");
+      var d9 = findConsolidateByCode("SI02027000");
+      if (d9 == 0) { d9 = 1; }
+      var r9val = n9 / d9;
+      var r9 = ratingByThreshold(threshold, r9val);
+      var s9 = scoreByRating(rating_to_score, r9);
+      var w9 = weightByCode("RI0200200900");
+      var res9 = s9 * w9 * 1.0;
+
+      // RI0200201000: SI02030000 / SI02008000
+      var n10 = findConsolidateByCode("SI02030000");
+      var d10 = findConsolidateByCode("SI02008000");
+      if (d10 == 0) { d10 = 1; }
+      var r10val = n10 / d10;
+      var r10 = ratingByThreshold(threshold, r10val);
+      var s10 = scoreByRating(rating_to_score, r10);
+      var w10 = weightByCode("RI0200201000");
+      var res10 = s10 * w10 * 1.0;
+
+      // RI0200201100: SI02031000 / SI02032000
+      var n11 = findConsolidateByCode("SI02031000");
+      var d11 = findConsolidateByCode("SI02032000");
+      if (d11 == 0) { d11 = 1; }
+      var r11val = n11 / d11;
+      var r11 = ratingByThreshold(threshold, r11val);
+      var s11 = scoreByRating(rating_to_score, r11);
+      var w11 = weightByCode("RI0200201100");
+      var res11 = s11 * w11 * 1.0;
+
+      // RI0200201200: SI02033000 / SI02030000
+      var n12 = findConsolidateByCode("SI02033000");
+      var d12 = findConsolidateByCode("SI02030000");
+      if (d12 == 0) { d12 = 1; }
+      var r12val = n12 / d12;
+      var r12 = ratingByThreshold(threshold, r12val);
+      var s12 = scoreByRating(rating_to_score, r12);
+      var w12 = weightByCode("RI0200201200");
+      var res12 = s12 * w12 * 1.0;
+
+      // RI0200201300: (SI02023000 - SI02024000) / SI02024000
+      var a13 = findConsolidateByCode("SI02023000");
+      var b13 = findConsolidateByCode("SI02024000");
+      var d13 = b13;
+      if (d13 == 0) { d13 = 1; }
+      var r13val = (a13 - b13) / d13;
+      var r13 = ratingByThreshold(threshold, r13val);
+      var s13 = scoreByRating(rating_to_score, r13);
+      var w13 = weightByCode("RI0200201300");
+      var res13 = s13 * w13 * 1.0;
+
+      var total = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10 + res11 + res12 + res13;
+      return total;
+      ]]>
+    </score_rule>
     <RiskProfileNode>
       <Profile_ID>RI0200200200</Profile_ID>
       <risiko_name>Risiko Pasar</risiko_name>
@@ -3346,6 +3471,63 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <ID>647</ID>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &lt;= 0.05) ? 1 : (5 &lt; value &lt;= 0.10) ? 2 : (10 &lt; value &lt;= 0.15) ? 3 : (15 &lt; value &lt;= 0.20) ? 4 : 5</threshold>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02028000");
+            var denominator = findConsolidateByCode("SI02027000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02028000");
+            var denominator = findConsolidateByCode("SI02027000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02028000");
+            var denominator = findConsolidateByCode("SI02027000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
     </RiskProfileNode>
     <RiskProfileNode>
       <Profile_ID>RI0200200600</Profile_ID>
@@ -3355,6 +3537,63 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <ID>644</ID>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &lt;= 0.30) ? 1 : (30 &lt; value &lt;= 0.40) ? 2 : (40 &lt; value &lt;= 0.50) ? 3 : (50 &lt; value &lt;= 0.60) ? 4 : 5</threshold>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02026000");
+            var denominator = findConsolidateByCode("SI02027000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02026000");
+            var denominator = findConsolidateByCode("SI02027000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02026000");
+            var denominator = findConsolidateByCode("SI02027000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
     </RiskProfileNode>
     <RiskProfileNode>
       <Profile_ID>RI0200200500</Profile_ID>
@@ -3380,6 +3619,78 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <assessment_factor>2.1 Karakteristik trading Konglomerasi Keuangan</assessment_factor>
       <weight>0.000000</weight>
       <ID>639</ID>
+            <score_formula>
+              <![CDATA[
+              1:92
+      2:76
+      3:60
+      4:44
+      5:28
+              ]]>
+            </score_formula>
+            <rating_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02020000");
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              return r;
+              ]]>
+            </rating_rule>
+            <score_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02020000");
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              var s = scoreByRating(score_formula, r);
+        
+              return s;
+              ]]>
+            </score_rule>
+            <value_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02020000");
+        
+              return consolidateValue * 1.0;
+              ]]>
+            </value_rule>
+            <score_formula>
+              <![CDATA[
+              1:92
+      2:76
+      3:60
+      4:44
+      5:28
+              ]]>
+            </score_formula>
+            <rating_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02021000");
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              return r;
+              ]]>
+            </rating_rule>
+            <score_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02021000");
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              var s = scoreByRating(score_formula, r);
+        
+              return s;
+              ]]>
+            </score_rule>
+            <value_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02021000");
+        
+              return consolidateValue * 1.0;
+              ]]>
+            </value_rule>
       <Risk_ID>9</Risk_ID>
     </RiskProfileNode>
     <RiskProfileNode>
@@ -3407,6 +3718,120 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <ID>648</ID>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &lt;= 0.10) ? 1 : (10 &lt; value &lt;= 0.20) ? 2 : (20 &lt; value &lt;= 0.30) ? 3 : (30 &lt; value &lt;= 0.40) ? 4 : 5</threshold>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02030000");
+            var denominator = findConsolidateByCode("SI02008000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02030000");
+            var denominator = findConsolidateByCode("SI02008000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02030000");
+            var denominator = findConsolidateByCode("SI02008000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02031000");
+            var denominator = findConsolidateByCode("SI02032000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02031000");
+            var denominator = findConsolidateByCode("SI02032000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02031000");
+            var denominator = findConsolidateByCode("SI02032000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
     </RiskProfileNode>
     <RiskProfileNode>
       <Profile_ID>RI0200200700</Profile_ID>
@@ -3414,6 +3839,99 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <assessment_factor>2.7 Rasio piutang pembiayaan dalam valas terhadap total aset</assessment_factor>
       <weight>0.000000</weight>
       <ID>645</ID>
+            <score_formula>
+              <![CDATA[
+              1:92
+      2:76
+      3:60
+      4:44
+      5:28
+              ]]>
+            </score_formula>
+            <rating_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02028000");
+              var denominator = findConsolidateByCode("SI02001000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              return r;
+              ]]>
+            </rating_rule>
+            <score_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02028000");
+              var denominator = findConsolidateByCode("SI02001000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              var s = scoreByRating(score_formula, r);
+        
+              return s;
+              ]]>
+            </score_rule>
+            <value_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02028000");
+              var denominator = findConsolidateByCode("SI02001000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              return consolidateValue * 1.0;
+              ]]>
+            </value_rule>
+            <score_formula>
+              <![CDATA[
+              1:92
+      2:76
+      3:60
+      4:44
+      5:28
+              ]]>
+            </score_formula>
+            <rating_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02029000");
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              return r;
+              ]]>
+            </rating_rule>
+            <score_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02029000");
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              var s = scoreByRating(score_formula, r);
+        
+              return s;
+              ]]>
+            </score_rule>
+            <value_rule>
+              <![CDATA[
+              var consolidateValue = findConsolidateByCode("SI02029000");
+        
+              return consolidateValue * 1.0;
+              ]]>
+            </value_rule>
       <Risk_ID>9</Risk_ID>
     </RiskProfileNode>
     <RiskProfileNode>
@@ -3424,6 +3942,156 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <ID>641</ID>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &lt;= 0.40) ? 1 : (40 &lt; value &lt;= 0.50) ? 2 : (50 &lt; value &lt;= 0.60) ? 3 : (60 &lt; value &lt;= 0.70) ? 4 : 5</threshold>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02022000");
+            var denominator = findConsolidateByCode("SI02023000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02022000");
+            var denominator = findConsolidateByCode("SI02023000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02022000");
+            var denominator = findConsolidateByCode("SI02023000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var consolidateValue = findConsolidateByCode("SI02025000");
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var consolidateValue = findConsolidateByCode("SI02025000");
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var consolidateValue = findConsolidateByCode("SI02025000");
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02026000");
+            var denominator = findConsolidateByCode("SI02001000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02026000");
+            var denominator = findConsolidateByCode("SI02001000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02026000");
+            var denominator = findConsolidateByCode("SI02001000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
     </RiskProfileNode>
     <RiskProfileNode>
       <Profile_ID>RI0200201300</Profile_ID>
@@ -3433,6 +4101,72 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <ID>651</ID>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &gt; 0.05) ? 1 : (- 5 &lt; value &lt;= 0.05) ? 2 : (-10 &lt; value &lt;= -0.05) ? 3 : (-15 &lt; value &lt;= -0.10) ? 4 : 5</threshold>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var a = findConsolidateByCode("SI02023000");
+            var b = findConsolidateByCode("SI02024000");
+        
+            var numerator = a - b;
+            var denominator = b;
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var a = findConsolidateByCode("SI02023000");
+            var b = findConsolidateByCode("SI02024000");
+        
+            var numerator = a - b;
+            var denominator = b;
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var a = findConsolidateByCode("SI02023000");
+            var b = findConsolidateByCode("SI02024000");
+        
+            var numerator = a - b;
+            var denominator = b;
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
     </RiskProfileNode>
     <RiskProfileNode>
       <Profile_ID>RI0200201200</Profile_ID>
@@ -3442,6 +4176,63 @@ c. Volume dan Karakteristik Risiko Suku Bunga pada Non-Trading Book</assessment_
       <ID>650</ID>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &gt; 1.00) ? 1 : (80 &lt; value &lt;= 1.00) ? 2 : (60 &lt; value &lt;= 0.80) ? 3 : (40 &lt; value &lt;= 0.60) ? 4 : 5</threshold>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02033000");
+            var denominator = findConsolidateByCode("SI02030000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02033000");
+            var denominator = findConsolidateByCode("SI02030000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02033000");
+            var denominator = findConsolidateByCode("SI02030000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
     </RiskProfileNode>
   </RiskProfileNode>
   <RiskProfileNode>
@@ -4101,12 +4892,179 @@ Rata-rata Total Aset</assessment_factor>
     <weight>0.000000</weight>
     <ID>627</ID>
     <Risk_ID>9</Risk_ID>
+    <score_rule>
+      <![CDATA[
+      // RI0200100100: (SI02002000 + SI02003000 + SI02004000) / SI02001000
+      var a1 = findConsolidateByCode("SI02002000");
+      var b1 = findConsolidateByCode("SI02003000");
+      var c1 = findConsolidateByCode("SI02004000");
+      var d1 = findConsolidateByCode("SI02001000");
+      if (d1 == 0) { d1 = 1; }
+      var r1val = (a1 + b1 + c1) / d1;
+      var r1 = ratingByThreshold(threshold, r1val);
+      var s1 = scoreByRating(rating_to_score, r1);
+      var w1 = weightByCode("RI0200100100");
+      var res1 = s1 * w1 * 1.0;
+
+      // RI0200100200: (SI02005000 + SI02006000 + SI02007000) / SI02008000
+      var a2 = findConsolidateByCode("SI02005000");
+      var b2 = findConsolidateByCode("SI02006000");
+      var c2 = findConsolidateByCode("SI02007000");
+      var d2 = findConsolidateByCode("SI02008000");
+      if (d2 == 0) { d2 = 1; }
+      var r2val = (a2 + b2 + c2) / d2;
+      var r2 = ratingByThreshold(threshold, r2val);
+      var s2 = scoreByRating(rating_to_score, r2);
+      var w2 = weightByCode("RI0200100200");
+      var res2 = s2 * w2 * 1.0;
+
+      // RI0200100300: SI02009000 / SI02001000
+      var a3 = findConsolidateByCode("SI02009000");
+      var d3 = findConsolidateByCode("SI02001000");
+      if (d3 == 0) { d3 = 1; }
+      var r3val = a3 / d3;
+      var r3 = ratingByThreshold(threshold, r3val);
+      var s3 = scoreByRating(rating_to_score, r3);
+      var w3 = weightByCode("RI0200100300");
+      var res3 = s3 * w3 * 1.0;
+
+      // RI0200100400: SI02010000 / SI02011000
+      var a4 = findConsolidateByCode("SI02010000");
+      var d4 = findConsolidateByCode("SI02011000");
+      if (d4 == 0) { d4 = 1; }
+      var r4val = a4 / d4;
+      var r4 = ratingByThreshold(threshold, r4val);
+      var s4 = scoreByRating(rating_to_score, r4);
+      var w4 = weightByCode("RI0200100400");
+      var res4 = s4 * w4 * 1.0;
+
+      // RI0200100500: SI02012000 / SI02001000
+      var a5 = findConsolidateByCode("SI02012000");
+      var d5 = findConsolidateByCode("SI02001000");
+      if (d5 == 0) { d5 = 1; }
+      var r5val = a5 / d5;
+      var r5 = ratingByThreshold(threshold, r5val);
+      var s5 = scoreByRating(rating_to_score, r5);
+      var w5 = weightByCode("RI0200100500");
+      var res5 = s5 * w5 * 1.0;
+
+      // RI0200100600: SI02013000 / SI02014000
+      var a6 = findConsolidateByCode("SI02013000");
+      var d6 = findConsolidateByCode("SI02014000");
+      if (d6 == 0) { d6 = 1; }
+      var r6val = a6 / d6;
+      var r6 = ratingByThreshold(threshold, r6val);
+      var s6 = scoreByRating(rating_to_score, r6);
+      var w6 = weightByCode("RI0200100600");
+      var res6 = s6 * w6 * 1.0;
+
+      // RI0200100700: SI02015000 / SI02014000
+      var a7 = findConsolidateByCode("SI02015000");
+      var d7 = findConsolidateByCode("SI02014000");
+      if (d7 == 0) { d7 = 1; }
+      var r7val = a7 / d7;
+      var r7 = ratingByThreshold(threshold, r7val);
+      var s7 = scoreByRating(rating_to_score, r7);
+      var w7 = weightByCode("RI0200100700");
+      var res7 = s7 * w7 * 1.0;
+
+      // RI0200100800: SI02016000 / SI02001000
+      var a8 = findConsolidateByCode("SI02016000");
+      var d8 = findConsolidateByCode("SI02001000");
+      if (d8 == 0) { d8 = 1; }
+      var r8val = a8 / d8;
+      var r8 = ratingByThreshold(threshold, r8val);
+      var s8 = scoreByRating(rating_to_score, r8);
+      var w8 = weightByCode("RI0200100800");
+      var res8 = s8 * w8 * 1.0;
+
+      // RI0200100900: SI02017000 / SI02018000
+      var a9 = findConsolidateByCode("SI02017000");
+      var d9 = findConsolidateByCode("SI02018000");
+      if (d9 == 0) { d9 = 1; }
+      var r9val = a9 / d9;
+      var r9 = ratingByThreshold(threshold, r9val);
+      var s9 = scoreByRating(rating_to_score, r9);
+      var w9 = weightByCode("RI0200100900");
+      var res9 = s9 * w9 * 1.0;
+
+      // RI0200101000: SI02019000 / SI02014000
+      var a10 = findConsolidateByCode("SI02019000");
+      var d10 = findConsolidateByCode("SI02014000");
+      if (d10 == 0) { d10 = 1; }
+      var r10val = a10 / d10;
+      var r10 = ratingByThreshold(threshold, r10val);
+      var s10 = scoreByRating(rating_to_score, r10);
+      var w10 = weightByCode("RI0200101000");
+      var res10 = s10 * w10 * 1.0;
+
+      var total = res1 + res2 + res3 + res4 + res5 + res6 + res7 + res8 + res9 + res10;
+      return total;
+      ]]>
+    </score_rule>
     <RiskProfileNode>
       <Profile_ID>RI0200100600</Profile_ID>
       <risiko_name>Risiko Pasar</risiko_name>
       <assessment_factor>1.6 Posisi Devisa Neto / Total Modal</assessment_factor>
       <weight>0.000000</weight>
       <ID>633</ID>
+            <score_formula>
+              <![CDATA[
+              1:92
+      2:76
+      3:60
+      4:44
+      5:28
+              ]]>
+            </score_formula>
+            <rating_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02013000");
+              var denominator = findConsolidateByCode("SI02014000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              return r;
+              ]]>
+            </rating_rule>
+            <score_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02013000");
+              var denominator = findConsolidateByCode("SI02014000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              var s = scoreByRating(score_formula, r);
+        
+              return s;
+              ]]>
+            </score_rule>
+            <value_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02013000");
+              var denominator = findConsolidateByCode("SI02014000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              return consolidateValue * 1.0;
+              ]]>
+            </value_rule>
       <Risk_ID>9</Risk_ID>
       <threshold>(Rasio &lt;= 0.05) ? 1 : (5 &lt; Rasio &lt;= 0.10) ? 2 : (10 &lt; Rasio &lt;= 0.15) ? 3 : (15 &lt; Rasio &lt;= 0.20) ? 4 : 5</threshold>
     </RiskProfileNode>
@@ -4118,6 +5076,63 @@ Rata-rata Total Aset</assessment_factor>
       <ID>634</ID>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &lt;= 0.02) ? 1 : (2 &lt; value &lt;= 0.03) ? 2 : (3 &lt; value &lt;= 0.04) ? 3 : (4 &lt; value &lt;= 0.05) ? 4 : 5</threshold>
+          <score_formula>
+            <![CDATA[
+            1:92
+    2:76
+    3:60
+    4:44
+    5:28
+            ]]>
+          </score_formula>
+          <rating_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02015000");
+            var denominator = findConsolidateByCode("SI02014000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            return r;
+            ]]>
+          </rating_rule>
+          <score_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02015000");
+            var denominator = findConsolidateByCode("SI02014000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            var r = ratingByThreshold(threshold, consolidateValue);
+        
+            var s = scoreByRating(score_formula, r);
+        
+            return s;
+            ]]>
+          </score_rule>
+          <value_rule>
+            <![CDATA[
+            var numerator = findConsolidateByCode("SI02015000");
+            var denominator = findConsolidateByCode("SI02014000");
+        
+            if (denominator == 0) {
+              return 0;
+            }
+        
+            var consolidateValue = numerator / denominator;
+        
+            return consolidateValue * 1.0;
+            ]]>
+          </value_rule>
     </RiskProfileNode>
     <RiskProfileNode>
       <Profile_ID>RI0200100200</Profile_ID>
@@ -4125,6 +5140,78 @@ Rata-rata Total Aset</assessment_factor>
       <assessment_factor>1.2 Kewajiban Trading, Derivatif, dan FVO / Total Kewajiban</assessment_factor>
       <weight>0.000000</weight>
       <ID>629</ID>
+            <score_formula>
+              <![CDATA[
+              1:92
+      2:76
+      3:60
+      4:44
+      5:28
+              ]]>
+            </score_formula>
+            <rating_rule>
+              <![CDATA[
+              var a = findConsolidateByCode("SI02005000");
+              var b = findConsolidateByCode("SI02006000");
+              var c = findConsolidateByCode("SI02007000");
+              var d = findConsolidateByCode("SI02008000");
+        
+              var numerator = a + b + c;
+              var denominator = d;
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              return r;
+              ]]>
+            </rating_rule>
+            <score_rule>
+              <![CDATA[
+              var a = findConsolidateByCode("SI02005000");
+              var b = findConsolidateByCode("SI02006000");
+              var c = findConsolidateByCode("SI02007000");
+              var d = findConsolidateByCode("SI02008000");
+        
+              var numerator = a + b + c;
+              var denominator = d;
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              var s = scoreByRating(score_formula, r);
+        
+              return s;
+              ]]>
+            </score_rule>
+            <value_rule>
+              <![CDATA[
+              var a = findConsolidateByCode("SI02005000");
+              var b = findConsolidateByCode("SI02006000");
+              var c = findConsolidateByCode("SI02007000");
+              var d = findConsolidateByCode("SI02008000");
+        
+              var numerator = a + b + c;
+              var denominator = d;
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              return consolidateValue * 1.0;
+              ]]>
+            </value_rule>
       <Risk_ID>9</Risk_ID>
       <threshold>(value &lt;= 0.02) ? 1 : (2 &lt; value &lt;= 0.03) ? 2 : (3 &lt; value &lt;= 0.04) ? 3 : (4 &lt; value &lt;= 0.05) ? 4 : 5</threshold>
     </RiskProfileNode>
@@ -4134,6 +5221,63 @@ Rata-rata Total Aset</assessment_factor>
       <assessment_factor>1.9 Aset Keuangan dengan Sisa Jatuh Tempo Diatas Satu Tahun / Kewajiban Keuangan dengan Sisa Jatuh Tempo diatas Satu Tahun</assessment_factor>
       <weight>0.000000</weight>
       <ID>636</ID>
+            <score_formula>
+              <![CDATA[
+              1:92
+      2:76
+      3:60
+      4:44
+      5:28
+              ]]>
+            </score_formula>
+            <rating_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02017000");
+              var denominator = findConsolidateByCode("SI02018000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              return r;
+              ]]>
+            </rating_rule>
+            <score_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02017000");
+              var denominator = findConsolidateByCode("SI02018000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              var r = ratingByThreshold(threshold, consolidateValue);
+        
+              var s = scoreByRating(score_formula, r);
+        
+              return s;
+              ]]>
+            </score_rule>
+            <value_rule>
+              <![CDATA[
+              var numerator = findConsolidateByCode("SI02017000");
+              var denominator = findConsolidateByCode("SI02018000");
+        
+              if (denominator == 0) {
+                return 0;
+              }
+        
+              var consolidateValue = numerator / denominator;
+        
+              return consolidateValue * 1.0;
+              ]]>
+            </value_rule>
       <Risk_ID>9</Risk_ID>
     </RiskProfileNode>
     <RiskProfileNode>
