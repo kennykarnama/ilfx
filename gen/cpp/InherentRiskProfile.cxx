@@ -415,6 +415,36 @@ score_formula (::std::unique_ptr< score_formula_type > x)
   this->score_formula_.set (std::move (x));
 }
 
+const RiskProfileNodeType::score_formula_rule_optional& RiskProfileNodeType::
+score_formula_rule () const
+{
+  return this->score_formula_rule_;
+}
+
+RiskProfileNodeType::score_formula_rule_optional& RiskProfileNodeType::
+score_formula_rule ()
+{
+  return this->score_formula_rule_;
+}
+
+void RiskProfileNodeType::
+score_formula_rule (const score_formula_rule_type& x)
+{
+  this->score_formula_rule_.set (x);
+}
+
+void RiskProfileNodeType::
+score_formula_rule (const score_formula_rule_optional& x)
+{
+  this->score_formula_rule_ = x;
+}
+
+void RiskProfileNodeType::
+score_formula_rule (::std::unique_ptr< score_formula_rule_type > x)
+{
+  this->score_formula_rule_.set (std::move (x));
+}
+
 const RiskProfileNodeType::rating_rule_optional& RiskProfileNodeType::
 rating_rule () const
 {
@@ -695,6 +725,7 @@ RiskProfileNodeType (const Profile_ID_type& Profile_ID)
   threshold_ (this),
   rating_to_score_ (this),
   score_formula_ (this),
+  score_formula_rule_ (this),
   rating_rule_ (this),
   score_rule_ (this),
   value_rule_ (this),
@@ -724,6 +755,7 @@ RiskProfileNodeType (const RiskProfileNodeType& x,
   threshold_ (x.threshold_, f, this),
   rating_to_score_ (x.rating_to_score_, f, this),
   score_formula_ (x.score_formula_, f, this),
+  score_formula_rule_ (x.score_formula_rule_, f, this),
   rating_rule_ (x.rating_rule_, f, this),
   score_rule_ (x.score_rule_, f, this),
   value_rule_ (x.value_rule_, f, this),
@@ -753,6 +785,7 @@ RiskProfileNodeType (const ::xercesc::DOMElement& e,
   threshold_ (this),
   rating_to_score_ (this),
   score_formula_ (this),
+  score_formula_rule_ (this),
   rating_rule_ (this),
   score_rule_ (this),
   value_rule_ (this),
@@ -955,6 +988,20 @@ parse (::xsd::cxx::xml::dom::parser< char >& p,
       }
     }
 
+    // score_formula_rule
+    //
+    if (n.name () == "score_formula_rule" && n.namespace_ ().empty ())
+    {
+      ::std::unique_ptr< score_formula_rule_type > r (
+        score_formula_rule_traits::create (i, f, this));
+
+      if (!this->score_formula_rule_)
+      {
+        this->score_formula_rule_.set (::std::move (r));
+        continue;
+      }
+    }
+
     // rating_rule
     //
     if (n.name () == "rating_rule" && n.namespace_ ().empty ())
@@ -1101,6 +1148,7 @@ operator= (const RiskProfileNodeType& x)
     this->threshold_ = x.threshold_;
     this->rating_to_score_ = x.rating_to_score_;
     this->score_formula_ = x.score_formula_;
+    this->score_formula_rule_ = x.score_formula_rule_;
     this->rating_rule_ = x.rating_rule_;
     this->score_rule_ = x.score_rule_;
     this->value_rule_ = x.value_rule_;
@@ -1927,6 +1975,18 @@ operator<< (::xercesc::DOMElement& e, const RiskProfileNodeType& i)
         e));
 
     s << *i.score_formula ();
+  }
+
+  // score_formula_rule
+  //
+  if (i.score_formula_rule ())
+  {
+    ::xercesc::DOMElement& s (
+      ::xsd::cxx::xml::dom::create_element (
+        "score_formula_rule",
+        e));
+
+    s << *i.score_formula_rule ();
   }
 
   // rating_rule

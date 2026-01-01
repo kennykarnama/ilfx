@@ -537,6 +537,27 @@ class RiskProfileNodeType: public ::xml_schema::type
   void
   score_formula (::std::unique_ptr< score_formula_type > p);
 
+  // score_formula_rule
+  //
+  typedef ::xml_schema::string score_formula_rule_type;
+  typedef ::xsd::cxx::tree::optional< score_formula_rule_type > score_formula_rule_optional;
+  typedef ::xsd::cxx::tree::traits< score_formula_rule_type, char > score_formula_rule_traits;
+
+  const score_formula_rule_optional&
+  score_formula_rule () const;
+
+  score_formula_rule_optional&
+  score_formula_rule ();
+
+  void
+  score_formula_rule (const score_formula_rule_type& x);
+
+  void
+  score_formula_rule (const score_formula_rule_optional& x);
+
+  void
+  score_formula_rule (::std::unique_ptr< score_formula_rule_type > p);
+
   // rating_rule
   //
   typedef ::xml_schema::string rating_rule_type;
@@ -744,6 +765,7 @@ class RiskProfileNodeType: public ::xml_schema::type
   threshold_optional threshold_;
   rating_to_score_optional rating_to_score_;
   score_formula_optional score_formula_;
+  score_formula_rule_optional score_formula_rule_;
   rating_rule_optional rating_rule_;
   score_rule_optional score_rule_;
   value_rule_optional value_rule_;

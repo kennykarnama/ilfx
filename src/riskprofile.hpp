@@ -111,6 +111,38 @@ namespace riskprofile {
             return 0.0;
         };
 
+        double weightByCode(const std::string& code) {
+            // Helper function to recursively search through nodes
+            std::function<double(const RiskProfileNodeType&)> searchNode = 
+                [&](const RiskProfileNodeType& node) -> double {
+                    if (node.Profile_ID() == code) {
+                        if (node.weight().present()) {
+                            return node.weight().get();
+                        }
+                        return 1.0;
+                    }
+                    
+                    // Recursively search in children
+                    for (const auto& child : node.RiskProfileNode()) {
+                        double result = searchNode(child);
+                        if (result != 0.0 || child.Profile_ID() == code) {
+                            return result;
+                        }
+                    }
+                    
+                    return 1.0;
+                };
+            
+            for (const auto& item : inherentRiskProfile->RiskProfileNode()) {
+                double result = searchNode(item);
+                if (result != 0.0 || item.Profile_ID() == code) {
+                    return result;
+                }
+            }
+            
+            return 0.0;
+        };
+
         double computedWeightedScoreByCode(const std::string& code) {
             // Helper function to recursively search through nodes
             std::function<double(const RiskProfileNodeType&)> searchNode = 
@@ -359,15 +391,19 @@ namespace riskprofile {
             return this->computedRatingByCode(code);
         }), "computedRatingByCode");
 
+        chai.add(chaiscript::fun([this](const std::string& code) {
+            return this->weightByCode(code);
+        }), "weightByCode");
+
         
         if (node.threshold().present()) {
             //std::cout << indent << "  Threshold: " << node.threshold().get() << std::endl;
             chai.add(chaiscript::var(std::string(node.threshold().get())), "threshold");
         }
 
-        if (node.rating_to_score().present()) {
+        if (node.score_formula().present()) {
             //std::cout << indent << "  Rating to Score: " << node.rating_to_score().get() << std::endl;
-            chai.add(chaiscript::var(std::string(node.rating_to_score().get())), "rating_to_score");
+            chai.add(chaiscript::var(std::string(node.score_formula().get())), "rating_to_score");
         }
 
         // calculate the rules first
