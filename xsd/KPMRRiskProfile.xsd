@@ -26,30 +26,45 @@
       <xs:element name="risk_id" type="xs:integer"/>
       <xs:element name="id" type="xs:integer"/>
       <xs:element name="weight" type="xs:decimal" minOccurs="0"/>
-      <xs:element name="score_formula" type="xs:string"/>
-
-      <xs:element name="rating_rule" type="xs:string" minOccurs="0">
-        <xs:annotation>
-          <xs:documentation>
-          Rules to derive the rating
-          </xs:documentation>
-        </xs:annotation>
+      <xs:element name="score_formula" minOccurs="0">
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
 
-       <xs:element name="score_rule" type="xs:string" minOccurs="0">
+      <xs:element name="rating_rule" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>
-          Rules to derive the score
-          </xs:documentation>
+          <xs:documentation>Rules to derive the rating</xs:documentation>
         </xs:annotation>
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
 
-      <xs:element name="value_rule" type="xs:string" minOccurs="0">
+      <xs:element name="score_rule" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>
-          Rules to derive the a value
-          </xs:documentation>
+          <xs:documentation>Rules to derive the score</xs:documentation>
         </xs:annotation>
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+
+      <xs:element name="value_rule" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Rules to derive the value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+          </xs:sequence>
+        </xs:complexType>
       </xs:element>
 
       <xs:element name="computed_rating" type="xs:string" minOccurs="0"></xs:element>
