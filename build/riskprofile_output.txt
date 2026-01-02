@@ -2,10 +2,10 @@ Risk Profile Evaluation Results
 ================================
 
 Input Files:
-  Inherent DataSource: ../sampledata/inherentds.xml
-  KPMR DataSource: ../sampledata/kpmrsource.xml
-  Inherent Risk Profile: ../sampledata/inherent_riskprofile.xml
-  KPMR Risk Profile: ../sampledata/kpmr_riskprofile.xml
+  Inherent DataSource: ../testdata/inherentds_asuransi.xml
+  KPMR DataSource: ../testdata/kpmrds_asuransi.xml
+  Inherent Risk Profile: ../testdata/inherent_riskpro.xml
+  KPMR Risk Profile: ../testdata/kpmr_riskpro.xml
 
 Status: SUCCESS
 Inherent Risk Profile Status: SUCCESS

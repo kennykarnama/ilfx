@@ -191,6 +191,14 @@
         </xs:annotation>
       </xs:element>
 
+       <xs:element name="score_formula_rule" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Evaluation rules to derive the score formula
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
       <xs:element name="rating_rule" type="xs:string" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
